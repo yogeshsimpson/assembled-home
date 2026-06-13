@@ -239,12 +239,10 @@ h4 {
   background-image: url('/images/hero-bg.jpg');
   background-size: cover;
   background-position: center;
-  opacity: 0.5;
+  opacity: 0.4;
   z-index: 0;
   pointer-events: none;
-  /* Fade the left edge so the image melts into the text column */
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 45%);
-  mask-image: linear-gradient(to right, transparent 0%, #000 45%);
+
 }
 
 @media (max-width: 720px) {
