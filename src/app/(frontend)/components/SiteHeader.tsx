@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
@@ -9,13 +8,11 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="site-header__inner">
         <Link href="/" className="brand" aria-label="Assembled Home — home">
-          <Image
-            src="/brand/AH-logo-horizontal.png"
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/brand/AH-logo-horizontal.svg"
             alt="Assembled Home"
-            width={260}
-            height={65}
-            priority
-            style={{ height: 30, width: 'auto' }}
+            style={{ height: 45, width: 'auto', display: 'block' }}
           />
         </Link>
         <nav className="nav">

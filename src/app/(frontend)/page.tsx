@@ -12,6 +12,7 @@ export default function HomePage() {
       <SiteHeader />
 
       <section className="hero">
+        <div className="hero__bg" aria-hidden="true" />
         <div className="hero__inner">
           <span className="eyebrow">Prefab fluency for the panel-curious</span>
           <h1>

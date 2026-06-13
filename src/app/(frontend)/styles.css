@@ -109,7 +109,7 @@ h4 {
 }
 
 .brand img {
-  height: 30px;
+  height: 45px;
   width: auto;
 }
 
@@ -130,12 +130,18 @@ h4 {
   text-decoration: none;
 }
 
+/* The Subscribe button must stay white — out-specify the .nav a rules above */
+.nav a.btn,
+.nav a.btn:hover {
+  color: #fff;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   background: var(--accent);
-  color: var(--paper);
+  color: #fff;
   font-weight: 600;
   font-size: 0.95rem;
   padding: 10px 18px;
@@ -199,6 +205,7 @@ h4 {
 /* ===================== Landing ===================== */
 .hero {
   position: relative;
+  overflow: hidden;
   padding: 96px 0 72px;
   background:
     radial-gradient(120% 120% at 100% 0%, var(--paper-warm) 0%, transparent 55%),
@@ -206,10 +213,36 @@ h4 {
   border-bottom: 1px solid var(--border-soft);
 }
 
+.hero__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 34%;
+  background-image: url('/images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+  /* Fade the left edge so the image melts into the text column */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 45%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 45%);
+}
+
 .hero__inner {
+  position: relative;
+  z-index: 1;
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 0 24px;
+}
+
+@media (max-width: 720px) {
+  .hero__bg {
+    width: 60%;
+    opacity: 0.28;
+  }
 }
 
 .hero h1 {
