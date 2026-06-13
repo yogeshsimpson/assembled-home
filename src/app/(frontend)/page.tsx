@@ -12,24 +12,26 @@ export default function HomePage() {
       <SiteHeader />
 
       <section className="hero">
-        <div className="hero__bg" aria-hidden="true" />
         <div className="hero__inner">
-          <span className="eyebrow">Prefab fluency for the panel-curious</span>
-          <h1>
-            Figuring out how to actually <em>build a house</em> — in public.
-          </h1>
-          <p className="hero__lede">
-            Assembled Home documents a custom panelized home build in Livingston, Montana: the
-            manufacturers, the real quotes, the wall assemblies, and the tradeoffs nobody puts in the
-            brochure. No expertise claimed. Learning out loud, one issue at a time.
-          </p>
-          <div className="hero__cta">
-            <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer" className="btn">
-              Subscribe on Substack
-            </a>
-            <Link href="/cost-matrix" className="btn btn--ghost">
-              See the Cost Matrix →
-            </Link>
+          <div className="hero__head">
+            <div className="hero__bg" aria-hidden="true" />
+            <span className="eyebrow">Prefab fluency for the panel-curious</span>
+            <h1>
+              Figuring out how to actually <em>build a house</em> — in public.
+            </h1>
+            <p className="hero__lede">
+              Assembled Home documents a custom panelized home build in Livingston, Montana: the
+              manufacturers, the real quotes, the wall assemblies, and the tradeoffs nobody puts in
+              the brochure. No expertise claimed. Learning out loud, one issue at a time.
+            </p>
+            <div className="hero__cta">
+              <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer" className="btn">
+                Subscribe on Substack
+              </a>
+              <Link href="/cost-matrix" className="btn btn--ghost">
+                See the Cost Matrix →
+              </Link>
+            </div>
           </div>
           <div className="hero__meta">
             <div>

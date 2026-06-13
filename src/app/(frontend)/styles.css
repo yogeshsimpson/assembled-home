@@ -213,12 +213,29 @@ h4 {
   border-bottom: 1px solid var(--border-soft);
 }
 
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Holds everything above the stats divider; the bg image is anchored to it,
+   so the image bottom always lands exactly on the divider line. */
+.hero__head {
+  position: relative;
+  padding-bottom: 40px;
+}
+
 .hero__bg {
   position: absolute;
   top: 0;
-  right: 0;
   bottom: 0;
-  width: 34%;
+  /* Anchor to the head vertically, but bleed to the viewport's right edge. */
+  right: calc((100% - 100vw) / 2);
+  width: 38vw;
+  max-width: 600px;
   background-image: url('/images/hero-bg.jpg');
   background-size: cover;
   background-position: center;
@@ -230,17 +247,9 @@ h4 {
   mask-image: linear-gradient(to right, transparent 0%, #000 45%);
 }
 
-.hero__inner {
-  position: relative;
-  z-index: 1;
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
 @media (max-width: 720px) {
   .hero__bg {
-    width: 60%;
+    width: 70vw;
     opacity: 0.28;
   }
 }
@@ -273,7 +282,6 @@ h4 {
 }
 
 .hero__meta {
-  margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
   gap: 28px 44px;
