@@ -17,7 +17,7 @@ export default function HomePage() {
             <div className="hero__bg" aria-hidden="true" />
             <span className="eyebrow">Prefab fluency for the panel-curious</span>
             <h1>
-              Figuring out how to actually <em>build a house</em> — in public.
+              Figuring out how to actually <em>build a house</em>.
             </h1>
             <p className="hero__lede">
               Assembled Home documents a custom panelized home build in Livingston, Montana: the
