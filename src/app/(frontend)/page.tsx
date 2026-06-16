@@ -12,17 +12,17 @@ export default function HomePage() {
       <SiteHeader />
 
       <section className="hero">
+        <div className="hero__bg" aria-hidden="true" />
         <div className="hero__inner">
           <div className="hero__head">
-            <div className="hero__bg" aria-hidden="true" />
             <span className="eyebrow">Prefab fluency for the panel-curious</span>
             <h1>
-              Figuring out how to actually <em>build a house</em>.
+              Can a regular person build a house that&rsquo;s efficient, affordable, and design-forward?
             </h1>
             <p className="hero__lede">
-              Assembled Home documents a custom panelized home build in Livingston, Montana: the
-              manufacturers, the real quotes, the wall assemblies, and the tradeoffs nobody puts in
-              the brochure. No expertise claimed. Learning out loud, one issue at a time.
+              Prefab kits and panelized construction promise to make that possible. I&rsquo;m testing
+              that promise against my own build in Livingston, Montana. Real quotes, real numbers, and
+              a deep dive into whether it actually delivers.
             </p>
             <div className="hero__cta">
               <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer" className="btn">

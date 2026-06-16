@@ -207,9 +207,6 @@ h4 {
   position: relative;
   overflow: hidden;
   padding: 96px 0 72px;
-  background:
-    radial-gradient(120% 120% at 100% 0%, var(--paper-warm) 0%, transparent 55%),
-    radial-gradient(100% 100% at 0% 100%, var(--paper-warmer) 0%, transparent 50%);
   border-bottom: 1px solid var(--border-soft);
 }
 
@@ -232,30 +229,30 @@ h4 {
   position: absolute;
   top: 0;
   bottom: 0;
-  /* Anchor to the head vertically, but bleed to the viewport's right edge. */
-  right: calc((100% - 100vw) / 2);
-  width: 38vw;
-  max-width: 600px;
+  right: -60px;
+  width: 42%;
   background-image: url('/images/hero-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.4;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  opacity: 0.3;
   z-index: 0;
   pointer-events: none;
-
 }
 
 @media (max-width: 720px) {
   .hero__bg {
-    width: 70vw;
-    opacity: 0.28;
+    width: 70%;
+    top: 60px;
+    bottom: 60px;
+    opacity: 0.2;
   }
 }
 
 .hero h1 {
-  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  font-size: clamp(1.45rem, 3vw, 2.45rem);
   font-weight: 400;
-  max-width: 16ch;
+  max-width: 32ch;
   margin: 18px 0 0;
 }
 
@@ -265,7 +262,7 @@ h4 {
 }
 
 .hero__lede {
-  margin: 26px 0 0;
+  margin: 12px 0 0;
   font-size: clamp(1.05rem, 2vw, 1.3rem);
   line-height: 1.55;
   color: var(--muted);
@@ -353,14 +350,7 @@ h4 {
 }
 
 .feature__art {
-  background:
-    repeating-linear-gradient(
-      135deg,
-      var(--paper-warm),
-      var(--paper-warm) 22px,
-      var(--paper-warmer) 22px,
-      var(--paper-warmer) 44px
-    );
+  background: url('/images/panel.png') center / contain no-repeat;
   border-left: 1px solid var(--border);
   display: flex;
   align-items: center;
@@ -587,6 +577,50 @@ table.cm-table {
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
+}
+
+.cm-sqft {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.cm-r-sub {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  opacity: 0.7;
+  margin-top: 3px;
+  text-transform: none;
+}
+
+.cm-r-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cm-r-pair {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+}
+
+.cm-r-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  min-width: 2.8ch;
+}
+
+.cm-col-list {
+  width: 22%;
 }
 
 .cm-quote {

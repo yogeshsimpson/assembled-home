@@ -18,18 +18,12 @@ export type MatrixRow = {
   order?: number | null
 }
 
-type SortKey = 'company' | 'system' | 'wallsR' | 'roofR' | 'sqft' | 'quote' | null
+type SortKey = 'company' | 'system' | 'wallsR' | 'roofR' | 'quote' | null
 type SortDir = 'asc' | 'desc'
 
 const parseR = (v?: string | null): number => {
   if (!v) return Number.NEGATIVE_INFINITY
   const m = v.match(/-?\d+(\.\d+)?/)
-  return m ? parseFloat(m[0]) : Number.NEGATIVE_INFINITY
-}
-
-const parseSqft = (v?: string | null): number => {
-  if (!v) return Number.NEGATIVE_INFINITY
-  const m = v.replace(/,/g, '').match(/\d+(\.\d+)?/)
   return m ? parseFloat(m[0]) : Number.NEGATIVE_INFINITY
 }
 
@@ -43,8 +37,6 @@ export function CostMatrixTable({
   const [sortKey, setSortKey] = useState<SortKey>(null)
   const [sortDir, setSortDir] = useState<SortDir>('asc')
 
-  const secondMetric = tier === 'tier1' ? 'roofR' : 'sqft'
-  const secondLabel = tier === 'tier1' ? 'Roof R' : 'Sqft'
   const productLabel = tier === 'tier1' ? 'System' : 'Product'
   const quoteLabel = tier === 'tier1' ? 'Quote ($K)' : 'Kit Price ($K)'
 
@@ -66,10 +58,6 @@ export function CostMatrixTable({
         case 'roofR':
           av = parseR(a.roofR)
           bv = parseR(b.roofR)
-          break
-        case 'sqft':
-          av = parseSqft(a.sqft)
-          bv = parseSqft(b.sqft)
           break
         default:
           av = (a[sortKey] ?? '').toString().toLowerCase()
@@ -122,11 +110,10 @@ export function CostMatrixTable({
           <tr>
             <Th k="company">Company</Th>
             <Th k="system">{productLabel}</Th>
-            <Th k="wallsR">Walls R</Th>
-            <Th k={secondMetric as Exclude<SortKey, null>}>{secondLabel}</Th>
+            <th>R-Value</th>
             <Th k="quote">{quoteLabel}</Th>
-            <th>Included</th>
-            <th>Not Included</th>
+            <th className="cm-col-list">Included</th>
+            <th className="cm-col-list">Not Included</th>
           </tr>
         </thead>
         <tbody>
@@ -136,21 +123,38 @@ export function CostMatrixTable({
                 <span className="cm-company">{r.company}</span>
                 {r.location ? <span className="cm-loc">{r.location}</span> : null}
               </td>
-              <td>{r.system}</td>
-              <td className="cm-num">{r.wallsR}</td>
-              <td className="cm-num">{tier === 'tier1' ? r.roofR : r.sqft}</td>
+              <td>
+                {r.system}
+                {tier === 'tier2' && r.sqft ? (
+                  <span className="cm-sqft">{r.sqft} sqft</span>
+                ) : null}
+              </td>
+              <td>
+                <div className="cm-r-cell">
+                  <div className="cm-r-pair">
+                    <span className="cm-r-label">walls</span>
+                    <span className="cm-num">{r.wallsR}</span>
+                  </div>
+                  {tier === 'tier1' && r.roofR ? (
+                    <div className="cm-r-pair">
+                      <span className="cm-r-label">roof</span>
+                      <span className="cm-num">{r.roofR}</span>
+                    </div>
+                  ) : null}
+                </div>
+              </td>
               <td>
                 <span className="cm-quote">{r.quote}</span>
                 {r.quoteNote ? <span className="cm-quote-note">{r.quoteNote}</span> : null}
               </td>
-              <td>
+              <td className="cm-col-list">
                 <ul className="cm-list">
                   {(r.included ?? []).map((i, idx) => (
                     <li key={idx}>{i.item}</li>
                   ))}
                 </ul>
               </td>
-              <td>
+              <td className="cm-col-list">
                 <ul className="cm-list cm-list--no">
                   {(r.notIncluded ?? []).map((i, idx) => (
                     <li key={idx}>{i.item}</li>
