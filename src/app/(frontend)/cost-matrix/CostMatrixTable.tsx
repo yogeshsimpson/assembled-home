@@ -105,7 +105,7 @@ export function CostMatrixTable({
 
   return (
     <div className="cm-table-wrap">
-      <table className="cm-table">
+      <table className={`cm-table cm-table--${tier}`}>
         <thead>
           <tr>
             <Th k="company">Company</Th>

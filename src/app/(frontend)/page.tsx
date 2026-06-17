@@ -54,13 +54,12 @@ export default function HomePage() {
         <section className="section">
           <div className="section__head">
             <span className="eyebrow">What this is</span>
-            <h2>A neutral seat between the buyer and the brochure.</h2>
+            <h2>Parsing the particulars</h2>
             <p>
-              Every prefab and panel company defines &ldquo;what&rsquo;s included&rdquo; differently.
-              Some quote shipping, some don&rsquo;t. Some send a crew, some assume you&rsquo;ll find
-              one. Assembled Home sits in the buyer&rsquo;s chair and writes down what&rsquo;s
-              actually being sold — so the next person doesn&rsquo;t have to spend six months
-              learning it the hard way.
+              Building a home involves an enormous scope of work. Every prefab and panel company
+              takes on a different portion of that scope, from big-ticket items like shipping and
+              labor to details like vapor barriers and service cavities. Assembled Home maps what
+              each one actually includes for the quoted price.
             </p>
           </div>
 
@@ -70,9 +69,11 @@ export default function HomePage() {
               <h3>The Cost Matrix</h3>
               <p>
                 Eleven manufacturers and builders, eleven different definitions of
-                &ldquo;what&rsquo;s included.&rdquo; Split into two tiers — custom envelope quotes
-                against one real design, and stock kits — with sortable columns and footnotes that do
-                the real work.
+                &ldquo;what&rsquo;s included,&rdquo; split into two tiers. Tier 1 is based on my
+                design: a 2,000 sq ft two-story Scandinavian modern shoe box with a 500 sq ft
+                garage. Tier 2 is pre-designed stock kits of comparable size. It&rsquo;s a start.
+                More companies are in the queue, and the custom panel manufacturers have their own
+                pre-designed units that warrant a tier of their own.
               </p>
               <p style={{ marginTop: 24 }}>
                 <Link href="/cost-matrix" className="btn">
@@ -103,43 +104,47 @@ export default function HomePage() {
             <div className="topic-card">
               <h4>Manufacturer profiles</h4>
               <p>
-                Real conversations with the people behind the panels — B.PUBLIC, Collective
-                Carpentry, Timber Age, Backcountry Hut Co., and more.
+                Real conversations with the people behind the panels: B.PUBLIC, Collective
+                Carpentry, Timber Age, Backcountry Hut Co., and more. Past the sales call and into
+                the actual process.
               </p>
             </div>
             <div className="topic-card">
               <h4>Quotes, itemized</h4>
               <p>
-                What each number actually covers — walls, roof, shipping, install, finishes — and
-                what it quietly leaves for you.
+                What each number actually covers: walls, roof, shipping, install, finishes. And
+                what&rsquo;s left for you. The devil is in the details.
               </p>
             </div>
             <div className="topic-card">
               <h4>Assemblies &amp; R-values</h4>
               <p>
-                Double-stud, CLT, straw, steel-and-foam. Why R-value, thermal bridging, and air
-                sealing matter more than square-foot price.
+                Panel companies love to show you their assemblies. Kit companies, not so much.
+                Larsen trusses, CLT, straw, steel-and-foam: the choice affects your mechanical
+                system, your energy costs, and your build for the next hundred years.
               </p>
             </div>
             <div className="topic-card">
               <h4>Financing reality</h4>
               <p>
-                Construction loans, DTI ceilings, and the gap between what a project costs and what a
-                bank will actually lend.
+                Construction loans, OTC loans, DSCR financing, DTI ceilings, and the gap between
+                what a project costs and what a bank will actually lend.
               </p>
             </div>
             <div className="topic-card">
               <h4>Build documentation</h4>
               <p>
-                The decisions in real time — design changes, value engineering, and the honest
-                admission when prefab doesn&rsquo;t pencil.
+                Design isn&rsquo;t a straight line. It&rsquo;s a cycle: each price reveals a
+                tradeoff, each tradeoff reveals a priority. Value engineering means figuring out
+                which ones you can live with, and being honest when the answer changes.
               </p>
             </div>
             <div className="topic-card">
               <h4>Design literacy</h4>
               <p>
-                Learning to read the spec sheet, ask the right question, and tell a marketing line
-                from a load-bearing fact.
+                Knowing what to ask is half the job. The other half is knowing when the answer is
+                missing. R-values, thermal bridging, air sealing, vapor management: the basics that
+                separate a marketing line from a wall that actually performs.
               </p>
             </div>
           </div>
@@ -150,13 +155,13 @@ export default function HomePage() {
             <span className="eyebrow" style={{ color: 'var(--accent-soft)' }}>
               The newsletter
             </span>
-            <h2>One build. Every number. No spin.</h2>
+            <h2>The homework you didn&rsquo;t want to do.</h2>
             <p>
-              New issues land on Substack. If you&rsquo;re weighing prefab, panels, or just trying to
-              build something good without getting fleeced — come along.
+              New issues land on Substack. If you&rsquo;ve been eyeing the sexy kit renders or dream
+              about seeing your own design come to life with super-efficient panels, get on board.
             </p>
             <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer" className="btn">
-              Subscribe — it&rsquo;s free
+              Subscribe for free
             </a>
           </div>
         </section>

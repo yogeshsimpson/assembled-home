@@ -183,7 +183,7 @@ const entries: EntrySeed[] = [
     ),
     notIncluded: list('Interior walls', 'Utility chases', 'Interior finishes'),
     analysisHeadline: '$235K (Layout G) — $291K (Layout F)',
-    analysis: `The surprise of the Tier 2 set, and now a moving target. I'd written them off as too expensive years ago. Going back to them after two recent calls with Pete and Robbie, the per-square-foot ratio of "what's included" is favorable when you actually itemize. The kit comes with Loewen windows, Velux skylights, standing seam metal roofing, Douglas fir T&G ceiling on the first floor, the staircase, and Western Red Cedar gable interiors.\n\nThe R-24 walls look low compared to Collective Carpentry's R-41, but the assembly philosophy is different: continuous insulation, minimal thermal bridging, structural elements visible as part of the design. "Passive adjacent," as Robbie called it. The 2021 all-in number from the San Juan Islands case study — $467K — is the only fully-documented all-in number any company in either tier has published. That transparency is itself a spec.\n\nPete and Robbie are actively working on Layout G, the garage configuration that's been my open question since Issue 09. Preliminary pricing on the 3-module Layout G is approximately $235K — cheaper than Layout F at $291K. The catch is real: Layout G has never been built, and the pricing is preliminary.`,
+    analysis: `The surprise of the Tier 2 set, and now a moving target. I'd written them off as too expensive years ago. Going back to them after two recent calls with Pete and Robbie, the per-square-foot ratio of "what's included" is favorable when you actually itemize. The kit comes with Loewen windows, Velux skylights, standing seam metal roofing, Douglas fir T&G ceiling on the first floor, the staircase, and Western Red Cedar gable interiors.\n\nThe R-24 walls look low compared to Collective Carpentry's R-41, but the assembly philosophy is different: continuous insulation, minimal thermal bridging, structural elements visible as part of the design. "Passive adjacent," as Robbie called it.\n\nPete and Robbie are actively working on Layout G, the garage configuration that's been my open question since Issue 09. Preliminary pricing on the 4-module Layout G is approximately $280K, and would represent their first design that incorporates a slab on grade, so the engineering is a work in progress.`,
   },
   {
     company: 'DEN Outdoors',
@@ -199,7 +199,7 @@ const entries: EntrySeed[] = [
     included: list('Wall + roof panels', 'Windows', 'Doors', 'Shipping', 'Design package'),
     notIncluded: list('Steel gauge', 'Thermal bridging data', 'Interior finishes', 'Mechanical'),
     analysisHeadline: '$160,964 · Modern Alpine 2025 kit',
-    analysis: `A correction to my own earlier coverage, and a clarification worth making clearly: "Modern Alpine" is not a separate company. It's a model from DEN Outdoors — the Modern Alpine 2025 panel kit, $160,964, shell-only with windows, doors, and shipping included. I'd been tracking them as two entries. They're one.\n\nWhen I wrote about DEN in Issue 09, the public wall description was, in full, "steel and closed-cell foam." No R-value, no steel gauge, no thermal-bridging discussion. That's changed: DEN now claims R-58 for the whole system. Which is a genuinely interesting development, because R-58 is a serious number — higher than Collective Carpentry's R-41 panels, in the neighborhood of Croft's R-58 walls.\n\nHere's why I'd still want to see the assembly before I print that number as fact. Steel conducts heat roughly 300 times faster than wood. A steel-framed wall can hit a high nominal R-value in the cavity and still lose much of it to thermal bridging through the studs, unless there's continuous exterior insulation doing the heavy lifting. An R-58 whole-system claim is only meaningful if it's a whole-system number — and DEN doesn't publish the assembly detail that would let anyone check. So: R-58 is now their claim, and I'm glad they're putting a number out. I just can't verify it yet.`,
+    analysis: `When I wrote about DEN in Issue 09, the public wall description was, in full, "steel and closed-cell foam." No R-value, no steel gauge, no thermal-bridging discussion. That's changed: DEN now claims R-58 for the whole system.\n\nHere's why I'd still want to see the assembly before I print that number as fact. Steel conducts heat roughly 300 times faster than wood. A steel-framed wall can hit a high nominal R-value in the cavity and still lose much of it to thermal bridging through the studs, unless there's continuous exterior insulation doing the heavy lifting. An R-58 whole-system claim is only meaningful if it's a whole-system number, and DEN doesn't publish the assembly detail that would let anyone check. R-58 is now their claim, and I'm glad they're putting a number out. I just can't verify it yet.`,
   },
   {
     company: 'Good Way Homes',
@@ -221,7 +221,7 @@ const entries: EntrySeed[] = [
     ),
     notIncluded: list('Premium finishes', 'Sitework + foundation'),
     analysisHeadline: '$350K listed · 1BR · net-zero ready',
-    analysis: `The only company in the matrix selling a genuinely finished home through volumetric modular construction — and I've narrowed in on a specific model that's relevant to me: the Carriage House Model C. It's a one-bedroom, 1.5-bath carriage house, 659 SF of livable area on a 912 SF footprint. Net Zero Ready, passive house wall assemblies, high-performance windows and doors, standard finishes included. Listed at $350,000.\n\nRead that number carefully, because currency matters here. Good Way is Canadian, and the listing is almost certainly in Canadian dollars — at today's exchange that's roughly $255K USD, or about $280 per square foot USD on the footprint. As always: confirm the currency before you fall in love with the number. A finished, passive-house-walled, net-zero-ready one-bedroom at ~$255K USD is a genuinely interesting figure.\n\nWhy a carriage house? Because of the thread I've been pulling since Issue 08 — the ADU, the "build a rental first" question from Issue 10. A finished carriage-house module that arrives net-zero-ready is exactly the kind of object that makes the hybrid strategy pencil. The Model C isn't a candidate for my primary residence. It's a candidate for the first structure.`,
+    analysis: `The only company in the matrix selling a genuinely finished home through volumetric modular construction. Initially, I was looking at their Model 202, which is closest to my current design, but that is listed on their website at $750k CAD. I have since switched it to the Carriage House Model C. It's a one-bedroom, 1.5-bath with 659 SF of livable area on a 912 SF footprint. It's definitely as small as I would want to go, but if I were also building a detached garage with a rental unit above, the price could be right to achieve that. Net Zero Ready, passive house wall assemblies, high-performance windows and doors, standard finishes included. Listed at $350k, which is roughly $255k USD. Shipping is the big X factor here. They list a 200 km allowance as included. Located just outside of Revelstoke, BC, I'd be looking at about 6x that distance.`,
   },
   {
     company: 'Zook Cabins',
@@ -237,7 +237,7 @@ const entries: EntrySeed[] = [
     included: list('Near-finished structure', 'Delivery', 'Install', 'Most finishes'),
     notIncluded: list('Utility hookups'),
     analysisHeadline: '$649K · delivered + installed',
-    analysis: `The most responsive company in the matrix. I emailed asking for a quote on the A-Frame Lodge — 1,960 sqft, 2bd/2ba. The quote arrived the next day. Most companies took weeks. Zook was also ranked #100 on the Financial Times' fastest-growing companies list in 2024, which is consistent with the responsiveness.\n\nWhat Zook is selling isn't really a kit; it's a near-finished structure that arrives on a flatbed and gets set on your foundation. Walking through what's included, it's closer to a built home minus the site work than to a panelized envelope. The price reflects that. If your program matches one of their existing designs, the all-in math could actually be competitive with Tier 1 plus everything Tier 1 leaves out.`,
+    analysis: `What Zook is selling isn't really a kit; it's a near-finished structure that arrives on a flatbed and gets set on your foundation. Walking through what's included, it's closer to a built home minus the site work than to a panelized envelope. The price reflects that. If your program matches one of their existing designs, the all-in math could actually be competitive with Tier 1 plus everything Tier 1 leaves out.`,
   },
   {
     company: 'Avrame',
@@ -333,14 +333,13 @@ const footnotes: { tier: 'tier1' | 'tier2'; number: number; label: string; body:
 ]
 
 export const seedMatrix = async (payload: Payload) => {
-  // Clear existing
-  const existingEntries = await payload.find({ collection: 'cost-matrix-entries', limit: 500 })
-  for (const doc of existingEntries.docs) {
-    await payload.delete({ collection: 'cost-matrix-entries', id: doc.id })
-  }
-  const existingFn = await payload.find({ collection: 'cost-matrix-footnotes', limit: 500 })
-  for (const doc of existingFn.docs) {
-    await payload.delete({ collection: 'cost-matrix-footnotes', id: doc.id })
+  // Safety check: refuse to run if data already exists.
+  // Use the Payload admin to edit live content. This function is for first-time setup only.
+  const existingEntries = await payload.find({ collection: 'cost-matrix-entries', limit: 1 })
+  if (existingEntries.totalDocs > 0) {
+    throw new Error(
+      'seedMatrix: data already exists — refusing to wipe live content. Edit via the Payload admin instead.',
+    )
   }
 
   for (const data of entries) {

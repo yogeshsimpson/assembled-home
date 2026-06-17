@@ -623,6 +623,19 @@ table.cm-table {
   width: 22%;
 }
 
+.cm-table--tier2 {
+  table-layout: fixed;
+}
+.cm-table--tier2 thead th:nth-child(1) { width: 15%; }
+.cm-table--tier2 thead th:nth-child(2) { width: 15%; }
+.cm-table--tier2 thead th:nth-child(3) { width: 11%; }
+.cm-table--tier2 thead th:nth-child(4) { width: 15%; }
+.cm-table--tier2 thead th:nth-child(5) { width: 22%; }
+.cm-table--tier2 thead th:nth-child(6) { width: 22%; }
+.cm-table--tier2 td { overflow-wrap: break-word; }
+.cm-table--tier2 .cm-num { white-space: normal; }
+.cm-table--tier2 .cm-r-pair { flex-wrap: wrap; }
+
 .cm-quote {
   font-family: var(--font-mono);
   font-size: 1rem;
