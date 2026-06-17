@@ -12,8 +12,8 @@ export const metadata = {
     'Eleven manufacturers and builders, eleven different definitions of "what\'s included." Custom envelope quotes and stock kits, itemized — with footnotes.',
 }
 
-// Revalidate hourly; CMS edits show up without a redeploy.
-export const revalidate = 3600
+// Revalidate every 30s so CMS edits appear quickly.
+export const revalidate = 30
 
 type Footnote = { id: string | number; number: number; label: string; body: string }
 
