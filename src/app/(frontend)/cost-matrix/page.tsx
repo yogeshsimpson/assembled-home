@@ -64,20 +64,18 @@ export default async function CostMatrixPage() {
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
 
-  const [entriesRes, footnotesRes] = await Promise.all([
-    payload.find({
-      collection: 'cost-matrix-entries',
-      limit: 200,
-      sort: 'order',
-      depth: 0,
-    }),
-    payload.find({
-      collection: 'cost-matrix-footnotes',
-      limit: 200,
-      sort: 'number',
-      depth: 0,
-    }),
-  ])
+  const entriesRes = await payload.find({
+    collection: 'cost-matrix-entries',
+    limit: 200,
+    sort: 'order',
+    depth: 0,
+  })
+  const footnotesRes = await payload.find({
+    collection: 'cost-matrix-footnotes',
+    limit: 200,
+    sort: 'number',
+    depth: 0,
+  })
 
   const entries = entriesRes.docs as unknown as (MatrixRow & {
     tier: 'tier1' | 'tier2'
@@ -103,8 +101,8 @@ export default async function CostMatrixPage() {
           <h1>Apples and Oranges, Itemized.</h1>
           <p>
             Eleven manufacturers and builders, eleven different definitions of &ldquo;what&rsquo;s
-            included.&rdquo; Per-square-foot pricing in this category is misleading at best — so this
-            is split into two tiers, reported separately, with footnotes that do the real work.
+            included,&rdquo; split into two tiers. More companies are in the queue, and the custom
+            panel manufacturers have their own pre-designed units that warrant a tier of their own.
           </p>
         </div>
       </section>
@@ -121,11 +119,13 @@ export default async function CostMatrixPage() {
           <>
             <section className="cm-section">
               <div className="cm-section__head">
-                <h2>Tier 1 — Envelope quotes</h2>
+                <h2>Tier 1: Customized Panel Systems</h2>
               </div>
               <p className="cm-section__sub">
-                All quotes for the same building: a roughly 1,500 sqft two-story custom design on a
-                Livingston, MT lot. Five panelized, one site-built.
+                Tier 1 is based on my own design: a 1,850 sq ft two-story Scandinavian modern shoe
+                box with a 500 sq ft garage. All quotes assume the owner/builder will handle the
+                site prep and utility work on the front end, and all the mechanical systems and
+                interior and exterior finishes on the back end.
               </p>
               <p className="cm-hint">↕ Click any column header to sort.</p>
               <CostMatrixTable rows={tier1} tier="tier1" />
@@ -135,11 +135,13 @@ export default async function CostMatrixPage() {
 
             <section className="cm-section">
               <div className="cm-section__head">
-                <h2>Tier 2 — Stock kits &amp; packaged systems</h2>
+                <h2>Tier 2: Stock kits &amp; packaged systems</h2>
               </div>
               <p className="cm-section__sub">
                 Different square footages, different programs, different definitions of
-                &ldquo;kit.&rdquo; Per-square-foot pricing here is meaningless without the footnotes.
+                &ldquo;kit.&rdquo; All quotes assume the owner/builder will handle the site prep
+                and utility work on the front end, while the amount of interior and exterior
+                finishing varies widely.
               </p>
               <p className="cm-hint">↕ Click any column header to sort.</p>
               <CostMatrixTable rows={tier2} tier="tier2" />
