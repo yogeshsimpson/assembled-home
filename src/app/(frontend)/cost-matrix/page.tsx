@@ -12,8 +12,7 @@ export const metadata = {
     'Eleven manufacturers and builders, eleven different definitions of "what\'s included." Custom envelope quotes and stock kits, itemized — with footnotes.',
 }
 
-// Revalidate every 30s so CMS edits appear quickly.
-export const revalidate = 30
+export const dynamic = 'force-dynamic'
 
 type Footnote = { id: string | number; number: number; label: string; body: string }
 
