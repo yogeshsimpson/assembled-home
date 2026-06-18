@@ -447,7 +447,7 @@ h4 {
 .cm-hero {
   position: relative;
   overflow: hidden;
-  min-height: 60vh;
+  min-height: 75vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -465,8 +465,13 @@ h4 {
   position: absolute;
   top: 0;
   bottom: 0;
-  right: 40px;
+  /* Pin to the inner container's right edge, not the viewport edge. */
+  right: max(24px, calc((100% - var(--maxw)) / 2));
   width: 42%;
+  /* Top padding reserves breathing room above the image. background-origin must
+     be content-box so the padding actually constrains the image area. */
+  padding-top: 2%;
+  background-origin: content-box;
   background-image: url('/images/matrix-bg.png');
   background-size: contain;
   background-repeat: no-repeat;
