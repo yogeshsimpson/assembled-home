@@ -445,8 +445,44 @@ h4 {
 
 /* ===================== Cost Matrix page ===================== */
 .cm-hero {
-  padding: 64px 0 36px;
+  position: relative;
+  overflow: hidden;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 0 36px;
   border-bottom: 1px solid var(--border-soft);
+}
+
+.cm-hero .container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.cm-hero__bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 40px;
+  width: 42%;
+  background-image: url('/images/matrix-bg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  opacity: 0.3;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 720px) {
+  .cm-hero__bg {
+    width: 70%;
+    top: 60px;
+    bottom: 0;
+    opacity: 0.2;
+  }
 }
 
 .cm-hero h1 {
@@ -459,7 +495,8 @@ h4 {
 .cm-hero p {
   color: var(--muted);
   font-size: 1.15rem;
-  max-width: 60ch;
+  /* Match the rendered width of the headline's longest line ("Oranges, Itemized."). */
+  max-width: 467px;
   margin: 20px 0 0;
 }
 

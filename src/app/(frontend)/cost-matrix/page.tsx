@@ -95,13 +95,17 @@ export default async function CostMatrixPage() {
       <SiteHeader />
 
       <section className="cm-hero">
+        <div className="cm-hero__bg" aria-hidden="true" />
         <div className="container">
           <span className="eyebrow">Reference · The Cost Matrix</span>
-          <h1>Apples and Oranges, Itemized.</h1>
+          <h1>
+            Apples and
+            <br />
+            Oranges, Itemized.
+          </h1>
           <p>
             Eleven manufacturers and builders, eleven different definitions of &ldquo;what&rsquo;s
-            included,&rdquo; split into two tiers. More companies are in the queue, and the custom
-            panel manufacturers have their own pre-designed units that warrant a tier of their own.
+            included,&rdquo; split into two tiers.
           </p>
         </div>
       </section>
