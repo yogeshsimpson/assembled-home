@@ -121,14 +121,15 @@ export default async function CostMatrixPage() {
                 <h2>Tier 1: Customized Panel Systems</h2>
               </div>
               <p className="cm-section__sub">
-                Tier 1 is based on my own design: a 1,850 sq ft two-story Scandinavian modern shoe
-                box with a 500 sq ft garage. All quotes assume the owner/builder will handle the
-                site prep and utility work on the front end, and all the mechanical systems and
-                interior and exterior finishes on the back end.
+                Tier 1 is based on my own design: an 1,850 sqft two-story Scandinavian modern shoe
+                box with a 500 sqft garage. All quotes assume the owner/builder will handle the
+                site prep and utility work on the front end, and do not include windows, doors,
+                mechanical systems, interior or exterior finishes on the back end.
               </p>
               <p className="cm-hint">↕ Click any column header to sort.</p>
               <CostMatrixTable rows={tier1} tier="tier1" />
-              <Footnotes items={fn1} tierLabel="Tier 1" />
+              {/* Footnotes hidden for now — restore when ready */}
+              {/* <Footnotes items={fn1} tierLabel="Tier 1" /> */}
               <Analysis rows={tier1} />
             </section>
 
@@ -144,7 +145,8 @@ export default async function CostMatrixPage() {
               </p>
               <p className="cm-hint">↕ Click any column header to sort.</p>
               <CostMatrixTable rows={tier2} tier="tier2" />
-              <Footnotes items={fn2} tierLabel="Tier 2" />
+              {/* Footnotes hidden for now — restore when ready */}
+              {/* <Footnotes items={fn2} tierLabel="Tier 2" /> */}
               <Analysis rows={tier2} />
             </section>
           </>

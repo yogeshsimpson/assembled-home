@@ -126,7 +126,7 @@ export function CostMatrixTable({
               <td>
                 {r.system}
                 {tier === 'tier2' && r.sqft ? (
-                  <span className="cm-sqft">{r.sqft} sqft</span>
+                  <span className="cm-sqft">{r.sqft}</span>
                 ) : null}
               </td>
               <td>

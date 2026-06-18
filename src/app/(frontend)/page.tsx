@@ -70,7 +70,7 @@ export default function HomePage() {
               <p>
                 Eleven manufacturers and builders, eleven different definitions of
                 &ldquo;what&rsquo;s included,&rdquo; split into two tiers. Tier 1 is based on my
-                design: a 2,000 sq ft two-story Scandinavian modern shoe box with a 500 sq ft
+                design: a 1,850 sqft two-story Scandinavian modern shoe box with a 500 sqft
                 garage. Tier 2 is pre-designed stock kits of comparable size. It&rsquo;s a start.
                 More companies are in the queue, and the custom panel manufacturers have their own
                 pre-designed units that warrant a tier of their own.
