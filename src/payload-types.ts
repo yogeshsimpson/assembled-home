@@ -189,6 +189,10 @@ export interface CostMatrixEntry {
    */
   system?: string | null;
   /**
+   * Company website URL, e.g. https://example.com. Shown as a 'website' link under the location.
+   */
+  website?: string | null;
+  /**
    * e.g. "R-41" or "R-58 / R-43"
    */
   wallsR?: string | null;
@@ -386,6 +390,7 @@ export interface CostMatrixEntriesSelect<T extends boolean = true> {
   order?: T;
   location?: T;
   system?: T;
+  website?: T;
   wallsR?: T;
   roofR?: T;
   sqft?: T;

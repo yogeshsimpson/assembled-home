@@ -602,6 +602,7 @@ table.cm-table {
 .cm-company {
   font-family: var(--font-serif);
   font-size: 1.05rem;
+  line-height: 1.2;
   color: var(--ink);
   font-weight: 500;
 }
@@ -609,10 +610,25 @@ table.cm-table {
 .cm-loc {
   display: block;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   letter-spacing: 0.04em;
   color: var(--muted);
   margin-top: 4px;
+}
+
+.cm-website {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  margin-top: 5px;
+}
+
+.cm-website:hover {
+  border-bottom-color: var(--accent);
 }
 
 .cm-num {

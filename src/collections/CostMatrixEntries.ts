@@ -60,6 +60,13 @@ export const CostMatrixEntries: CollectionConfig = {
       ],
     },
     {
+      name: 'website',
+      type: 'text',
+      admin: {
+        description: "Company website URL, e.g. https://example.com. Shown as a 'website' link under the location.",
+      },
+    },
+    {
       type: 'row',
       fields: [
         {

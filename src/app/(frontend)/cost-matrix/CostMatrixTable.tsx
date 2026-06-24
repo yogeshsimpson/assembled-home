@@ -6,6 +6,7 @@ export type MatrixRow = {
   id: string | number
   company: string
   location?: string | null
+  website?: string | null
   system?: string | null
   wallsR?: string | null
   roofR?: string | null
@@ -122,6 +123,16 @@ export function CostMatrixTable({
               <td>
                 <span className="cm-company">{r.company}</span>
                 {r.location ? <span className="cm-loc">{r.location}</span> : null}
+                {r.website ? (
+                  <a
+                    className="cm-website"
+                    href={r.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    website
+                  </a>
+                ) : null}
               </td>
               <td>
                 {r.system}
