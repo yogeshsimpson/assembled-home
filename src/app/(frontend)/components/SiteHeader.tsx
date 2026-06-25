@@ -7,7 +7,7 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="site-header__inner">
-        <Link href="/" className="brand" aria-label="Assembled Home — home">
+        <Link href="/" className="brand" aria-label="Assembled Home, home">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/brand/AH-logo-horizontal.svg"

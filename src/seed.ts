@@ -28,6 +28,7 @@ type EntrySeed = {
   notIncluded?: { item: string }[]
   analysisHeadline?: string
   analysis?: string
+  footnote?: string
 }
 
 const entries: EntrySeed[] = [
@@ -51,6 +52,7 @@ const entries: EntrySeed[] = [
     ),
     notIncluded: list('Shipping', 'Windows', 'Doors', 'Roofing material', 'Siding'),
     analysisHeadline: '$234K · supply + install',
+    footnote: `Design and engineering: 3D modeling, shop drawings, and architectural and structural design coordination are all bundled into the supply price. What's carved out and left to me is the fee for my own architect and structural engineer to review Collective's fabrication drawings, and no estimate is given for that review.`,
     analysis: `The most expensive option in Tier 1 but for good reason. They are also the most engineered, the most insulated, and the most explicitly turnkey-on-the-envelope. The 7-day install with their own crew and crane is not a marketing line. Andrea Michael at Love Schack confirmed it in Issue 03, on a project that hit weathertight in under a week. They generously provided four quotes in total to try and accommodate my budget, with the lowest price option of 134K, eliminating the roof system entirely and relying on local labor.`,
   },
   {
@@ -68,7 +70,8 @@ const entries: EntrySeed[] = [
     included: list('CLT interior finish', 'CNC wire chases', 'No drywall needed'),
     notIncluded: list('Install labor', 'Windows', 'Shipping', 'Ridge beam (working on it)'),
     analysisHeadline: '$160K · supply only · $28K roof alone',
-    analysis: `The aesthetic case is real. Three inches of solid wood as the interior finish — no drywall, no paint — is something the other Tier 1 companies can't offer at any price. The committing nature of the manufacturing lock is also real: electrical penetrations get CNC-routed into the CLT, and you have to know where every outlet goes before fabrication.\n\nThe pricing seed is the roof. $28K for roof panels alone — half what the other manufacturers charge — is the outlier that opened the hybrid approach I wrote about in Issue 06. Site-built walls plus a Timber Age roof is the only configuration in the entire spreadsheet that gets me under budget without sacrificing the vaulted ceiling.`,
+    footnote: `Design and engineering: a single $1,600 line: 20 hours at $80/hr to generate machine files and manufacturing drawings. Plumbing, HVAC, and electrical design are each scoped at zero hours. There's no separate structural or architectural PE fee called out; it's absorbed into the 15% project-management/overhead/profit and 20% contingency already baked into the not-to-exceed total.`,
+    analysis: `The aesthetic case is real. Three inches of solid wood as the interior finish, no drywall, no paint, is something the other Tier 1 companies can't offer at any price. The committing nature of the manufacturing lock is also real: electrical penetrations get CNC-routed into the CLT, and you have to know where every outlet goes before fabrication.\n\nThe pricing seed is the roof. $28K for roof panels alone, half what the other manufacturers charge, is the outlier that opened the hybrid approach I wrote about in Issue 06. Site-built walls plus a Timber Age roof is the only configuration in the entire spreadsheet that gets me under budget without sacrificing the vaulted ceiling.`,
   },
   {
     company: 'Croft',
@@ -98,7 +101,8 @@ const entries: EntrySeed[] = [
       'Insulated floor deck',
     ),
     analysisHeadline: '$172K SD estimate · 03/13/26',
-    analysis: `An update from my earlier coverage. When I wrote about Croft in Issues 02 and 04, I'd received only a verbal estimate of around $195K and was waiting on formal documentation. The formal quote arrived on March 13, dated and bound to a specific drawing set (YS_house_v2.1), and it changes my read on the company entirely.\n\nThe $186,100 SD estimate is for the panelization scope: exterior wall panels, exterior roof panels (excluding the screened porch), uninsulated interior floor decks, and rough openings for window and door install. Everything else gets categorized explicitly. It is the most rigorous scope document of any Tier 1 quote I've received.\n\nThe wall R-values land the highest in the matrix: R-58 at 16" thick or R-43 at 12" thick, double-stud frame with high-density natural fiber insulation. The roof panels are sized per the specified assembly — Croft doesn't pin an R-value without seeing the final design, which is an honest posture I haven't seen from another vendor.\n\nService rates are printed on the quote document itself: $150/hr for design and shop drawings, $85/hr for project management, $85/hr for site labor. Most manufacturers keep service rates inside conversations. Croft writes them down.`,
+    footnote: `Design and engineering: design and shop drawings are billed time-and-materials at $150/hr, with project management at $85/hr. No hours are estimated and no design total is scoped. It's the most open-ended design arrangement in Tier 1.`,
+    analysis: `An update from my earlier coverage. When I wrote about Croft in Issues 02 and 04, I'd received only a verbal estimate of around $195K and was waiting on formal documentation. The formal quote arrived on March 13, dated and bound to a specific drawing set (YS_house_v2.1), and it changes my read on the company entirely.\n\nThe $186,100 SD estimate is for the panelization scope: exterior wall panels, exterior roof panels (excluding the screened porch), uninsulated interior floor decks, and rough openings for window and door install. Everything else gets categorized explicitly. It is the most rigorous scope document of any Tier 1 quote I've received.\n\nThe wall R-values land the highest in the matrix: R-58 at 16" thick or R-43 at 12" thick, double-stud frame with high-density natural fiber insulation. The roof panels are sized per the specified assembly, and Croft doesn't pin an R-value without seeing the final design, which is an honest posture I haven't seen from another vendor.\n\nService rates are printed on the quote document itself: $150/hr for design and shop drawings, $85/hr for project management, $85/hr for site labor. Most manufacturers keep service rates inside conversations. Croft writes them down.`,
   },
   {
     company: 'New Frameworks',
@@ -115,7 +119,8 @@ const entries: EntrySeed[] = [
     included: list('Panel supply', 'Interior plaster (option)'),
     notIncluded: list('Shipping (low)', 'Vapor barriers', 'Strapping', 'Install', 'Drywall-ready finish'),
     analysisHeadline: '$170K · cheapest, but with asterisks',
-    analysis: `The cheapest of the Tier 1 quotes, but the asterisks are the story. The panels arrive without vapor barriers or strapping — the wall is shipped, but not in a state ready for siding or drywall. Their shipping number is shockingly low.\n\nThe Ace McArleton conversation in Issue 05 reframed what New Frameworks is actually selling: not the assembly I originally pictured, but a kit of parts that assumes I bring the site-finishing labor. Their philosophy is closer to "panels are one ingredient in a high-performance build," not "panels are the build." That's a fair posture. It also means a true apples-to-apples with Collective requires me to add roughly $40-60K of site finishing back into the New Frameworks number.`,
+    footnote: `Design and engineering: the most transparent of the group. $2,000 to $5,000 of structural engineering and 10 hours of design review are included. Beyond that the rates are published: $125/hr lead design, $85/hr associate, $225/hr senior structural engineer, $150/hr staff structural engineer. So the cost is at least something I can model.`,
+    analysis: `The cheapest of the Tier 1 quotes, but the asterisks are the story. The panels arrive without vapor barriers or strapping. The wall is shipped, but not in a state ready for siding or drywall. Their shipping number is shockingly low.\n\nThe Ace McArleton conversation in Issue 05 reframed what New Frameworks is actually selling: not the assembly I originally pictured, but a kit of parts that assumes I bring the site-finishing labor. Their philosophy is closer to "panels are one ingredient in a high-performance build," not "panels are the build." That's a fair posture. It also means a true apples-to-apples with Collective requires me to add roughly $40-60K of site finishing back into the New Frameworks number.`,
   },
   {
     company: 'B.PUBLIC Prefab',
@@ -126,13 +131,14 @@ const entries: EntrySeed[] = [
     system: 'Cellulose-dense framed panels',
     wallsR: 'R-30',
     roofR: 'R-40',
-    quote: '$159K — $200K',
+    quote: '$159K to $200K',
     quoteSortValue: 159,
     quoteNote: '"pretty good wall" · R-35 = $185K · full = $200K',
     included: list('Full system', 'Vapor management'),
     notIncluded: list('Shipping', 'Site work', 'Labor', 'Finishes'),
-    analysisHeadline: '$159K — $200K · tiered',
-    analysis: `The most-tiered offering in the matrix. The "pretty good wall" R-30 option at $159K is the cheapest custom-design panel quote I've received that I'd actually trust. R-35 is $185K. The full passive-house-spec system is closer to $200K. Natasha Ribeiro has been the most generous with her time of any vendor — she gave me the R-30 option specifically because I told her I wasn't chasing certification.\n\nThe "pretty good wall" framing — coined by the four Maine builders behind the book — has become unexpectedly useful vocabulary across my whole evaluation. R-30 isn't a passive house number. It's meaningfully better than code. The cost delta between R-30 and R-40 is real enough that it should be on every spreadsheet in this category, not just mine.`,
+    analysisHeadline: '$159K to $200K · tiered',
+    footnote: `Design and engineering: sold as an "Assembly Set": a $2,000 upfront deposit, then hourly with no estimate of hours and no cap. Completely open-ended.`,
+    analysis: `The most-tiered offering in the matrix. The "pretty good wall" R-30 option at $159K is the cheapest custom-design panel quote I've received that I'd actually trust. R-35 is $185K. The full passive-house-spec system is closer to $200K. Natasha Ribeiro has been the most generous with her time of any vendor, and she gave me the R-30 option specifically because I told her I wasn't chasing certification.\n\nThe "pretty good wall" framing, coined by the four Maine builders behind the book, has become unexpectedly useful vocabulary across my whole evaluation. R-30 isn't a passive house number. It's meaningfully better than code. The cost delta between R-30 and R-40 is real enough that it should be on every spreadsheet in this category, not just mine.`,
   },
   {
     company: 'Stillwater Builders',
@@ -164,7 +170,8 @@ const entries: EntrySeed[] = [
       'Drywall + finishes',
     ),
     analysisHeadline: '$155K envelope · $400K through drywall',
-    analysis: `The only bid in Tier 1 that isn't panelized — and the only bid in the matrix where the value-engineering conversation is the conversation, not a footnote on the quote sheet.\n\nBen Shachner and his business partner Ted are local. Both have built with panels in the past. Their original envelope-only number was $155K for site-framed double-stud walls and roof, insulated with Hempitecture hemp fiber, with the air barrier built on site. R-44 walls. R-70 roof. The highest insulation values in the entire matrix. No cross-country shipping. No crane.\n\nIn May they sharpened the broader number: $400K to take the project from site prep through drywall. That number includes site work, foundation, roof, exterior trim and siding, plumbing and electrical rough-in, and drywall. It is the closest thing in the matrix to a true comparable-total-cost number, because it doesn't leave the most-expensive parts of the build for me to figure out separately.\n\nIt also comes with a clear value-engineering case: pivot to a standard 2x6 build, swap Schuco for Andersen 100 windows, design out the wall jogs, and simplify the roof. Ben framed it as how to close the last $15K with more confidence — not how to get to $400K.`,
+    footnote: `Design and engineering: the only site-built bid in Tier 1, so there's no panel-design or shop-drawing fee to quote. The architectural and structural engineering sit with my own design team rather than with the builder.`,
+    analysis: `The only bid in Tier 1 that isn't panelized, and the only bid in the matrix where the value-engineering conversation is the conversation, not a footnote on the quote sheet.\n\nBen Shachner and his business partner Ted are local. Both have built with panels in the past. Their original envelope-only number was $155K for site-framed double-stud walls and roof, insulated with Hempitecture hemp fiber, with the air barrier built on site. R-44 walls. R-70 roof. The highest insulation values in the entire matrix. No cross-country shipping. No crane.\n\nIn May they sharpened the broader number: $400K to take the project from site prep through drywall. That number includes site work, foundation, roof, exterior trim and siding, plumbing and electrical rough-in, and drywall. It is the closest thing in the matrix to a true comparable-total-cost number, because it doesn't leave the most-expensive parts of the build for me to figure out separately.\n\nIt also comes with a clear value-engineering case: pivot to a standard 2x6 build, swap Schuco for Andersen 100 windows, design out the wall jogs, and simplify the roof. Ben framed it as how to close the last $15K with more confidence, not how to get to $400K.`,
   },
 
   // ---------------- TIER 2 ----------------
@@ -190,7 +197,7 @@ const entries: EntrySeed[] = [
       'Cedar gables',
     ),
     notIncluded: list('Interior walls', 'Utility chases', 'Interior finishes'),
-    analysisHeadline: '$235K (Layout G) — $291K (Layout F)',
+    analysisHeadline: '$235K (Layout G) to $291K (Layout F)',
     analysis: `The surprise of the Tier 2 set, and now a moving target. I'd written them off as too expensive years ago. Going back to them after two recent calls with Pete and Robbie, the per-square-foot ratio of "what's included" is favorable when you actually itemize. The kit comes with Loewen windows, Velux skylights, standing seam metal roofing, Douglas fir T&G ceiling on the first floor, the staircase, and Western Red Cedar gable interiors.\n\nThe R-24 walls look low compared to Collective Carpentry's R-41, but the assembly philosophy is different: continuous insulation, minimal thermal bridging, structural elements visible as part of the design. "Passive adjacent," as Robbie called it.\n\nPete and Robbie are actively working on Layout G, the garage configuration that's been my open question since Issue 09. Preliminary pricing on the 4-module Layout G is approximately $280K, and would represent their first design that incorporates a slab on grade, so the engineering is a work in progress.`,
   },
   {
@@ -265,76 +272,42 @@ const entries: EntrySeed[] = [
     included: list('A-frame structural kit'),
     notIncluded: list('Insulation (DIY)', 'Doors', 'Windows', 'Mechanical'),
     analysisHeadline: '$115K kit · $475-$835K all-in (est.)',
-    analysis: `The most kit-like of the kit options, in the original sense of the word. No insulation in any tier. No doors. No windows. No foundation. No mechanical. The Estonian company has the strongest A-frame community in the matrix, and the kit is genuinely transparent about what it is and isn't.\n\nThe third-party-reviewed contractor-finished cost in the US — $339-$596 per square foot — tells you how much variability sits downstream of what looks like a $115K kit. That's a $475K-$835K all-in range on the Trio 120. Compare that to a known-quantity custom panel build at $500K, and the "cheap kit" framing becomes much harder to defend.`,
+    analysis: `The most kit-like of the kit options, in the original sense of the word. No insulation in any tier. No doors. No windows. No foundation. No mechanical. The Estonian company has the strongest A-frame community in the matrix, and the kit is genuinely transparent about what it is and isn't.\n\nThe third-party-reviewed contractor-finished cost in the US, $339-$596 per square foot, tells you how much variability sits downstream of what looks like a $115K kit. That's a $475K-$835K all-in range on the Trio 120. Compare that to a known-quantity custom panel build at $500K, and the "cheap kit" framing becomes much harder to defend.`,
   },
 ]
 
+// Tier 1 design-and-engineering notes now live on each entry's `footnote` field
+// (rendered as "Footnotes · Design & Engineering"). Only Tier 2 footnotes remain here.
 const footnotes: { tier: 'tier1' | 'tier2'; number: number; label: string; body: string }[] = [
-  {
-    tier: 'tier1',
-    number: 1,
-    label: 'Collective Carpentry',
-    body: `Design and engineering: 3D modeling, shop drawings, and architectural and structural design coordination are all bundled into the supply price. What's carved out and left to me is the fee for my own architect and structural engineer to review Collective's fabrication drawings — and no estimate is given for that review.`,
-  },
-  {
-    tier: 'tier1',
-    number: 2,
-    label: 'Timber Age',
-    body: `Design and engineering: a single $1,600 line — 20 hours at $80/hr to generate machine files and manufacturing drawings. Plumbing, HVAC, and electrical design are each scoped at zero hours. There's no separate structural or architectural PE fee called out; it's absorbed into the 15% project-management/overhead/profit and 20% contingency already baked into the not-to-exceed total.`,
-  },
-  {
-    tier: 'tier1',
-    number: 3,
-    label: 'Croft',
-    body: `Design and engineering: design and shop drawings are billed time-and-materials at $150/hr, with project management at $85/hr. No hours are estimated and no design total is scoped — the most open-ended design arrangement in Tier 1.`,
-  },
-  {
-    tier: 'tier1',
-    number: 4,
-    label: 'New Frameworks',
-    body: `Design and engineering: the most transparent of the group. $2,000–$5,000 of structural engineering and 10 hours of design review are included. Beyond that the rates are published — $125/hr lead design, $85/hr associate, $225/hr senior structural engineer, $150/hr staff structural engineer — so the cost is at least something I can model.`,
-  },
-  {
-    tier: 'tier1',
-    number: 5,
-    label: 'B.PUBLIC Prefab',
-    body: `Design and engineering: sold as an "Assembly Set" — a $2,000 upfront deposit, then hourly with no estimate of hours and no cap. Completely open-ended.`,
-  },
-  {
-    tier: 'tier1',
-    number: 6,
-    label: 'Stillwater Builders',
-    body: `Design and engineering: the only site-built bid in Tier 1, so there's no panel-design or shop-drawing fee to quote — the architectural and structural engineering sit with my own design team rather than with the builder.`,
-  },
   {
     tier: 'tier2',
     number: 1,
     label: 'BHC System 02',
-    body: `Designed by Michael Lecke, one of BHC's owners and a custom-home architect. The structural elements are exposed on the interior — part of the design intent, not a cost-cutting move. R-24 walls / R-38 floor and ceiling. Two layouts in active conversation: Layout F (3-module + deck + 2/3 window wall, no garage, 999 sqft) and Layout G (3-module garage configuration, 871 sqft) — see footnote 2.`,
+    body: `Designed by Michael Lecke, one of BHC's owners and a custom-home architect. The structural elements are exposed on the interior, part of the design intent, not a cost-cutting move. R-24 walls / R-38 floor and ceiling. Two layouts in active conversation: Layout F (3-module + deck + 2/3 window wall, no garage, 999 sqft) and Layout G (3-module garage configuration, 871 sqft). See footnote 2.`,
   },
   {
     tier: 'tier2',
     number: 2,
     label: 'BHC Layout G',
-    body: `The configuration I've now worked out with BHC is the System 02 | 4-Module | Layout G Custom — the garage configuration — landing around $280K. That's close to the earlier $284K extrapolation (each additional module on the System 02 platform runs roughly $49K), which suggests the per-module math holds. Layout G is still effectively under development — it has never been built — so the ~$280K is a worked-out estimate, not a delivered-and-proven number. Historical reference: the 2021 San Juan Islands case study (Layout F variant) was $263K kit, $467K all-in; today's $291K is the updated 2026 kit price for that same 3-module Layout F product.`,
+    body: `The configuration I've now worked out with BHC is the System 02 | 4-Module | Layout G Custom (the garage configuration), landing around $280K. That's close to the earlier $284K extrapolation (each additional module on the System 02 platform runs roughly $49K), which suggests the per-module math holds. Layout G is still effectively under development (it has never been built), so the ~$280K is a worked-out estimate, not a delivered-and-proven number. Historical reference: the 2021 San Juan Islands case study (Layout F variant) was $263K kit, $467K all-in; today's $291K is the updated 2026 kit price for that same 3-module Layout F product.`,
   },
   {
     tier: 'tier2',
     number: 3,
     label: 'DEN Outdoors & the Modern Alpine model',
-    body: `"Modern Alpine 2025" is a model from DEN Outdoors — not a separate company. The $160,964 figure is DEN's Modern Alpine panel kit (shell-only, includes windows, doors, and shipping). DEN now claims R-58 for the whole system. That's a striking number for a steel-framed, closed-cell-foam shell: steel conducts heat ~300x faster than wood, so an R-58 whole-assembly claim hinges entirely on continuous insulation and how thermal bridging is handled — neither of which DEN details publicly (no steel gauge, no assembly section). Treat R-58 as a manufacturer claim, not a verified assembly value.`,
+    body: `"Modern Alpine 2025" is a model from DEN Outdoors, not a separate company. The $160,964 figure is DEN's Modern Alpine panel kit (shell-only, includes windows, doors, and shipping). DEN now claims R-58 for the whole system. That's a striking number for a steel-framed, closed-cell-foam shell: steel conducts heat ~300x faster than wood, so an R-58 whole-assembly claim hinges entirely on continuous insulation and how thermal bridging is handled, neither of which DEN details publicly (no steel gauge, no assembly section). Treat R-58 as a manufacturer claim, not a verified assembly value.`,
   },
   {
     tier: 'tier2',
     number: 4,
-    label: 'Good Way Homes — Carriage House Model C',
-    body: `A one-bedroom, 1.5-bath carriage house: 659 SF livable, 912 SF footprint, 128 SF deck, 14' x 45'. Listed at $350,000. Net Zero Ready, with passive house wall assemblies, high-performance windows and doors, quality membranes and tapes, and R-values built to each climate zone (Good Way doesn't publish a single headline R-number — it's spec'd per zone). Standard finishes included; premium finishes extra. Sitework (services, excavation, foundation) is excluded; a 200 km delivery allowance and a 50' crane-drop radius are included. Currency caveat: Good Way is Canadian and the listing shows no currency symbol beyond "$" — almost certainly CAD, which at ~0.73 is approximately $255K USD, or roughly $280/sqft USD on the footprint. Confirm currency before relying on the number.`,
+    label: 'Good Way Homes · Carriage House Model C',
+    body: `A one-bedroom, 1.5-bath carriage house: 659 SF livable, 912 SF footprint, 128 SF deck, 14' x 45'. Listed at $350,000. Net Zero Ready, with passive house wall assemblies, high-performance windows and doors, quality membranes and tapes, and R-values built to each climate zone (Good Way doesn't publish a single headline R-number; it's spec'd per zone). Standard finishes included; premium finishes extra. Sitework (services, excavation, foundation) is excluded; a 200 km delivery allowance and a 50' crane-drop radius are included. Currency caveat: Good Way is Canadian and the listing shows no currency symbol beyond "$", almost certainly CAD, which at ~0.73 is approximately $255K USD, or roughly $280/sqft USD on the footprint. Confirm currency before relying on the number.`,
   },
   {
     tier: 'tier2',
     number: 5,
     label: 'Avrame insulation',
-    body: 'The kit is delivered with no insulation in any tier. Buyers source insulation locally. Per the most-cited third-party review, the US contractor-finished cost runs $339-$596/sqft — a $475K-$835K all-in range on the Trio 120.',
+    body: 'The kit is delivered with no insulation in any tier. Buyers source insulation locally. Per the most-cited third-party review, the US contractor-finished cost runs $339-$596/sqft, a $475K-$835K all-in range on the Trio 120.',
   },
 ]
 
@@ -344,7 +317,7 @@ export const seedMatrix = async (payload: Payload) => {
   const existingEntries = await payload.find({ collection: 'cost-matrix-entries', limit: 1 })
   if (existingEntries.totalDocs > 0) {
     throw new Error(
-      'seedMatrix: data already exists — refusing to wipe live content. Edit via the Payload admin instead.',
+      'seedMatrix: data already exists. Refusing to wipe live content. Edit via the Payload admin instead.',
     )
   }
 

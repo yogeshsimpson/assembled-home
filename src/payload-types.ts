@@ -205,7 +205,7 @@ export interface CostMatrixEntry {
    */
   sqft?: string | null;
   /**
-   * Display value, e.g. "$234K" or "$159K — $200K"
+   * Display value, e.g. "$234K" or "$159K to $200K"
    */
   quote?: string | null;
   /**
@@ -236,6 +236,10 @@ export interface CostMatrixEntry {
    * Company-by-company prose shown below the table. Separate paragraphs with a blank line.
    */
   analysis?: string | null;
+  /**
+   * Tier 1 only. A short design-and-engineering note shown in the "Footnotes · Design & Engineering" list under the Tier 1 table.
+   */
+  footnote?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -411,6 +415,7 @@ export interface CostMatrixEntriesSelect<T extends boolean = true> {
       };
   analysisHeadline?: T;
   analysis?: T;
+  footnote?: T;
   updatedAt?: T;
   createdAt?: T;
 }

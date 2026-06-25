@@ -9,7 +9,7 @@ import { CostMatrixTable, type MatrixRow } from './CostMatrixTable'
 export const metadata = {
   title: 'The Cost Matrix',
   description:
-    'Eleven manufacturers and builders, eleven different definitions of "what\'s included." Custom envelope quotes and stock kits, itemized — with footnotes.',
+    'Eleven manufacturers and builders, eleven different definitions of "what\'s included." Custom envelope quotes and stock kits, itemized, with footnotes.',
 }
 
 export const dynamic = 'force-dynamic'
@@ -80,12 +80,16 @@ export default async function CostMatrixPage() {
     tier: 'tier1' | 'tier2'
     analysisHeadline?: string | null
     analysis?: string | null
+    footnote?: string | null
   })[]
   const footnotes = footnotesRes.docs as unknown as (Footnote & { tier: 'tier1' | 'tier2' })[]
 
   const tier1 = entries.filter((e) => e.tier === 'tier1')
   const tier2 = entries.filter((e) => e.tier === 'tier2')
-  const fn1 = footnotes.filter((f) => f.tier === 'tier1')
+  // Tier 1 footnotes now live on each manufacturer entry (the `footnote` field).
+  const fn1: Footnote[] = tier1
+    .filter((e) => e.footnote)
+    .map((e) => ({ id: e.id, number: e.order ?? 0, label: e.company, body: e.footnote as string }))
   const fn2 = footnotes.filter((f) => f.tier === 'tier2')
 
   const empty = entries.length === 0
@@ -148,7 +152,7 @@ export default async function CostMatrixPage() {
               </p>
               <p className="cm-hint">↕ Click any column header to sort.</p>
               <CostMatrixTable rows={tier2} tier="tier2" />
-              {/* Footnotes hidden for now — restore when ready */}
+              {/* Footnotes hidden for now; restore when ready */}
               {/* <Footnotes items={fn2} tierLabel="Tier 2" /> */}
               <Analysis rows={tier2} />
             </section>

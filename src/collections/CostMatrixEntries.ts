@@ -27,8 +27,8 @@ export const CostMatrixEntries: CollectionConfig = {
       required: true,
       defaultValue: 'tier1',
       options: [
-        { label: 'Tier 1 — Envelope quotes (against my design)', value: 'tier1' },
-        { label: 'Tier 2 — Stock kits / packaged systems', value: 'tier2' },
+        { label: 'Tier 1: Envelope quotes (against my design)', value: 'tier1' },
+        { label: 'Tier 2: Stock kits / packaged systems', value: 'tier2' },
       ],
       admin: {
         description: 'Which table this row belongs to.',
@@ -103,7 +103,7 @@ export const CostMatrixEntries: CollectionConfig = {
         {
           name: 'quote',
           type: 'text',
-          admin: { width: '50%', description: 'Display value, e.g. "$234K" or "$159K — $200K"' },
+          admin: { width: '50%', description: 'Display value, e.g. "$234K" or "$159K to $200K"' },
         },
         {
           name: 'quoteSortValue',
@@ -154,6 +154,16 @@ export const CostMatrixEntries: CollectionConfig = {
       admin: {
         description: 'Company-by-company prose shown below the table. Separate paragraphs with a blank line.',
         rows: 8,
+      },
+    },
+    {
+      name: 'footnote',
+      type: 'textarea',
+      admin: {
+        description:
+          'Tier 1 only. A short design-and-engineering note shown in the "Footnotes · Design & Engineering" list under the Tier 1 table.',
+        rows: 4,
+        condition: (data) => data?.tier === 'tier1',
       },
     },
   ],

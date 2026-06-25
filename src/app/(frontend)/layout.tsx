@@ -30,7 +30,7 @@ export const metadata = {
     template: '%s · Assembled Home',
   },
   description:
-    'Prefab fluency for the panel-curious. Documenting a custom panelized home build in Livingston, Montana — and the manufacturers, quotes, and tradeoffs along the way.',
+    'Prefab fluency for the panel-curious. Documenting a custom panelized home build in Livingston, Montana, and the manufacturers, quotes, and tradeoffs along the way.',
   icons: {
     icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
   },
