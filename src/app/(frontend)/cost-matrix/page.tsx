@@ -132,8 +132,7 @@ export default async function CostMatrixPage() {
               </p>
               <p className="cm-hint">↕ Click any column header to sort.</p>
               <CostMatrixTable rows={tier1} tier="tier1" />
-              {/* Footnotes hidden for now — restore when ready */}
-              {/* <Footnotes items={fn1} tierLabel="Tier 1" /> */}
+              <Footnotes items={fn1} tierLabel="Tier 1" />
               <Analysis rows={tier1} />
             </section>
 
