@@ -361,7 +361,8 @@ h4 {
   position: absolute;
   right: 16px;
   bottom: 16px;
-  display: inline-block;
+  width: 104px;
+  max-width: 40%;
   line-height: 0;
   transition: opacity 0.15s ease;
 }
@@ -372,8 +373,7 @@ h4 {
 
 .feature__logo img {
   display: block;
-  width: 104px;
-  max-width: 40%;
+  width: 100%;
   height: auto;
 }
 
