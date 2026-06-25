@@ -359,8 +359,8 @@ h4 {
 
 .feature__logo {
   position: absolute;
-  right: 24px;
-  bottom: 24px;
+  right: 16px;
+  bottom: 16px;
   display: inline-block;
   line-height: 0;
   transition: opacity 0.15s ease;
