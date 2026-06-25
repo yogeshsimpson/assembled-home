@@ -81,16 +81,16 @@ export default function HomePage() {
                 </Link>
               </p>
             </div>
-            <div className="feature__art" aria-hidden="true">
-              <div className="glyph">
-                COLLECTIVE CARPENTRY · $234K
-                <br />
-                TIMBER AGE · $160K
-                <br />
-                B.PUBLIC · $159K
-                <br />
-                STILLWATER · $155K
-              </div>
+            <div className="feature__art">
+              <a
+                className="feature__logo"
+                href="https://www.croft.haus"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit the Croft website"
+              >
+                <img src="/images/croft-logo.webp" alt="Croft" width={300} height={300} />
+              </a>
             </div>
           </div>
         </section>

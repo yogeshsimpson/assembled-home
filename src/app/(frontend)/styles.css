@@ -350,26 +350,31 @@ h4 {
 }
 
 .feature__art {
+  position: relative;
   background: url('/images/panel.png') center / contain no-repeat;
   border-left: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   min-height: 240px;
   padding: 32px;
 }
 
-.feature__art .glyph {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--accent);
-  background: var(--paper);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 18px 22px;
-  text-align: center;
-  line-height: 1.7;
-  box-shadow: 0 12px 30px -18px rgba(26, 24, 22, 0.4);
+.feature__logo {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  display: inline-block;
+  line-height: 0;
+  transition: opacity 0.15s ease;
+}
+
+.feature__logo:hover {
+  opacity: 0.85;
+}
+
+.feature__logo img {
+  display: block;
+  width: 104px;
+  max-width: 40%;
+  height: auto;
 }
 
 .topics {
