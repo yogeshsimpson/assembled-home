@@ -47,7 +47,7 @@ function Footnotes({ items, tierLabel }: { items: Footnote[]; tierLabel: string 
   const sorted = [...items].sort((a, b) => a.number - b.number)
   return (
     <div className="cm-footnotes">
-      <h3>Footnotes — {tierLabel}</h3>
+      <h3>Footnotes · {tierLabel}</h3>
       <ol>
         {sorted.map((f) => (
           <li key={f.id}>
@@ -132,7 +132,7 @@ export default async function CostMatrixPage() {
               </p>
               <p className="cm-hint">↕ Click any column header to sort.</p>
               <CostMatrixTable rows={tier1} tier="tier1" />
-              <Footnotes items={fn1} tierLabel="Tier 1" />
+              <Footnotes items={fn1} tierLabel="Design & Engineering" />
               <Analysis rows={tier1} />
             </section>
 
