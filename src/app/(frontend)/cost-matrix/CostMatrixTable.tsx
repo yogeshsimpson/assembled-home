@@ -159,13 +159,13 @@ export function CostMatrixTable({
               <td>
                 <div className="cm-r-cell">
                   <div className="cm-r-pair">
-                    <span className="cm-r-label">walls</span>
                     <span className="cm-num">{r.wallsR}</span>
+                    <span className="cm-r-label">walls</span>
                   </div>
                   {tier === 'tier1' && r.roofR ? (
                     <div className="cm-r-pair">
-                      <span className="cm-r-label">roof</span>
                       <span className="cm-num">{r.roofR}</span>
+                      <span className="cm-r-label">roof</span>
                     </div>
                   ) : null}
                 </div>
