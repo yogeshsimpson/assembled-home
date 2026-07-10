@@ -73,29 +73,24 @@ export const CostMatrixEntries: CollectionConfig = {
           name: 'wallsR',
           type: 'text',
           label: 'Walls R',
-          admin: { width: '50%', description: 'e.g. "R-41" or "R-58 / R-43"' },
+          admin: { width: '50%', description: 'e.g. "R-41" or "Not specified"' },
         },
         {
           name: 'roofR',
           type: 'text',
           label: 'Roof R',
-          admin: {
-            width: '50%',
-            description: 'Tier 1 only. e.g. "R-61" or "Per spec"',
-            condition: (data) => data?.tier === 'tier1',
-          },
-        },
-        {
-          name: 'sqft',
-          type: 'text',
-          label: 'Sqft',
-          admin: {
-            width: '50%',
-            description: 'Tier 2 only. e.g. "~870-1,000" or "1,960"',
-            condition: (data) => data?.tier === 'tier2',
-          },
+          admin: { width: '50%', description: 'e.g. "R-61" or "Not specified"' },
         },
       ],
+    },
+    {
+      name: 'sqft',
+      type: 'text',
+      label: 'Sqft',
+      admin: {
+        description: 'Tier 2 only. e.g. "~870-1,000 sqft" or "1,960 sqft"',
+        condition: (data) => data?.tier === 'tier2',
+      },
     },
     {
       type: 'row',

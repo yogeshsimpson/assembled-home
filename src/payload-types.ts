@@ -193,15 +193,15 @@ export interface CostMatrixEntry {
    */
   website?: string | null;
   /**
-   * e.g. "R-41" or "R-58 / R-43"
+   * e.g. "R-41" or "Not specified"
    */
   wallsR?: string | null;
   /**
-   * Tier 1 only. e.g. "R-61" or "Per spec"
+   * e.g. "R-61" or "Not specified"
    */
   roofR?: string | null;
   /**
-   * Tier 2 only. e.g. "~870-1,000" or "1,960"
+   * Tier 2 only. e.g. "~870-1,000 sqft" or "1,960 sqft"
    */
   sqft?: string | null;
   /**
