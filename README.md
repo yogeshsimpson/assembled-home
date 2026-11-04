@@ -41,7 +41,7 @@ Built with **Next.js (App Router) + Payload CMS + Postgres (Neon)**, deployed on
 
 ## Content model (Payload, group "Cost Matrix")
 
-- **Cost Matrix Entries** — one row per company. `tier` (tier1/tier2) selects which table it appears in. Tier 1 shows Roof R; Tier 2 shows Sqft. `quoteSortValue` drives numeric column sorting. `analysis` is the prose shown below the table.
+- **Cost Matrix Entries** — one row per company (Tier 3: one row per design). `tier` (tier1/tier2/tier3) selects which table it appears in. Tier 2 and 3 show Sqft. Tier 3 adds bed/bath, plans published, estimated total (with source) and a customization path. `quoteSortValue` drives numeric column sorting. `analysis` is the prose shown below the table.
 - **Cost Matrix Footnotes** — numbered footnotes per tier.
 
 The `/cost-matrix` page revalidates hourly, so CMS edits appear without a redeploy.
@@ -49,3 +49,16 @@ The `/cost-matrix` page revalidates hourly, so CMS edits appear without a redepl
 ## Deploy (Vercel)
 
 Set `DATABASE_URI` and `PAYLOAD_SECRET` as environment variables in the Vercel project, then connect this GitHub repo. Point `assembledhome.com` at the Vercel project.
+
+## Schema changes
+
+There are no Payload migrations in this repo. The production schema was created by Payload's dev push, and `next build` does not migrate. So a schema change ships as a hand-written, additive SQL file in `migrations-sql/`, run against Neon **before** deploying the code that needs it. Never run `next dev` against the production `DATABASE_URI`: in dev, Payload pushes the schema into whatever database it points at.
+
+### Tier 3 go-live (2026-11)
+
+1. Run `migrations-sql/2026-11-03-add-tier3.sql` against production (Neon SQL editor, or `psql`). It adds the `tier3` enum value and six nullable columns. It is safe to re-run, and the current production code keeps working after it.
+2. Merge `stock-design-tier` into `main` and let Vercel deploy.
+3. Load the rows: `export $(grep -v '^#' .env | xargs) && NODE_ENV=production npx tsx --tsconfig tsconfig.json scripts/seed-tier3.ts`. `NODE_ENV=production` is essential. The script skips rows that already exist.
+4. Check `/cost-matrix` (the page is dynamic, so rows show immediately).
+
+Note: `psql` rejects Neon's `uselibpqcompat` URI parameter; drop it from the connection string for `psql`.
