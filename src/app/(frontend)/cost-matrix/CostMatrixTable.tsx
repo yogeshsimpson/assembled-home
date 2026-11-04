@@ -11,15 +11,23 @@ export type MatrixRow = {
   wallsR?: string | null
   roofR?: string | null
   sqft?: string | null
+  bedBath?: string | null
+  plansPublished?: string | null
   quote?: string | null
   quoteSortValue?: number | null
   quoteNote?: string | null
+  estimatedTotal?: string | null
+  estimatedTotalSortValue?: number | null
+  estimatedTotalSource?: string | null
+  customization?: string | null
   included?: { item: string }[] | null
   notIncluded?: { item: string }[] | null
   order?: number | null
 }
 
-type SortKey = 'company' | 'system' | 'wallsR' | 'roofR' | 'quote' | null
+export type Tier = 'tier1' | 'tier2' | 'tier3'
+
+type SortKey = 'company' | 'system' | 'wallsR' | 'roofR' | 'quote' | 'estimatedTotal' | null
 type SortDir = 'asc' | 'desc'
 
 const parseR = (v?: string | null): number => {
@@ -33,13 +41,15 @@ export function CostMatrixTable({
   tier,
 }: {
   rows: MatrixRow[]
-  tier: 'tier1' | 'tier2'
+  tier: Tier
 }) {
   const [sortKey, setSortKey] = useState<SortKey>(null)
   const [sortDir, setSortDir] = useState<SortDir>('asc')
 
-  const productLabel = tier === 'tier1' ? 'System' : 'Product'
-  const quoteLabel = tier === 'tier1' ? 'Quote ($K)' : 'Kit Price ($K)'
+  const isStock = tier === 'tier3'
+  const productLabel = tier === 'tier1' ? 'System' : tier === 'tier2' ? 'Product' : 'Design'
+  const quoteLabel =
+    tier === 'tier1' ? 'Quote ($K)' : tier === 'tier2' ? 'Kit Price ($K)' : 'Panel System ($K)'
 
   const sorted = useMemo(() => {
     if (!sortKey) return rows
@@ -51,6 +61,10 @@ export function CostMatrixTable({
         case 'quote':
           av = a.quoteSortValue ?? Number.NEGATIVE_INFINITY
           bv = b.quoteSortValue ?? Number.NEGATIVE_INFINITY
+          break
+        case 'estimatedTotal':
+          av = a.estimatedTotalSortValue ?? Number.NEGATIVE_INFINITY
+          bv = b.estimatedTotalSortValue ?? Number.NEGATIVE_INFINITY
           break
         case 'wallsR':
           av = parseR(a.wallsR)
@@ -113,6 +127,8 @@ export function CostMatrixTable({
             <Th k="system">{productLabel}</Th>
             <th>R-Value</th>
             <Th k="quote">{quoteLabel}</Th>
+            {isStock ? <Th k="estimatedTotal">Est. Total ($K)</Th> : null}
+            {isStock ? <th className="cm-col-custom">Customization</th> : null}
             <th className="cm-col-list">Included</th>
             <th className="cm-col-list">Not Included</th>
           </tr>
@@ -152,8 +168,12 @@ export function CostMatrixTable({
               </td>
               <td>
                 {r.system}
-                {tier === 'tier2' && r.sqft ? (
+                {tier !== 'tier1' && r.sqft ? (
                   <span className="cm-sqft">{r.sqft}</span>
+                ) : null}
+                {isStock && r.bedBath ? <span className="cm-sqft">{r.bedBath}</span> : null}
+                {isStock && r.plansPublished ? (
+                  <span className="cm-plans">Plans published: {r.plansPublished}</span>
                 ) : null}
               </td>
               <td>
@@ -174,6 +194,15 @@ export function CostMatrixTable({
                 <span className="cm-quote">{r.quote}</span>
                 {r.quoteNote ? <span className="cm-quote-note">{r.quoteNote}</span> : null}
               </td>
+              {isStock ? (
+                <td>
+                  <span className="cm-quote cm-quote--total">{r.estimatedTotal}</span>
+                  {r.estimatedTotalSource ? (
+                    <span className="cm-quote-note">{r.estimatedTotalSource}</span>
+                  ) : null}
+                </td>
+              ) : null}
+              {isStock ? <td className="cm-col-custom cm-custom">{r.customization}</td> : null}
               <td className="cm-col-list">
                 <ul className="cm-list">
                   {(r.included ?? []).map((i, idx) => (

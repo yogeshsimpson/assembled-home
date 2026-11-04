@@ -175,7 +175,7 @@ export interface CostMatrixEntry {
   /**
    * Which table this row belongs to.
    */
-  tier: 'tier1' | 'tier2';
+  tier: 'tier1' | 'tier2' | 'tier3';
   /**
    * Sort order within the tier (lowest first).
    */
@@ -201,17 +201,41 @@ export interface CostMatrixEntry {
    */
   roofR?: string | null;
   /**
-   * Tier 2 only. e.g. "~870-1,000 sqft" or "1,960 sqft"
+   * Tiers 2 and 3. e.g. "~870-1,000 sqft" or "1,960 sqft"
    */
   sqft?: string | null;
   /**
-   * Display value, e.g. "$234K" or "$159K to $200K"
+   * Tier 3 only. e.g. "2 bed / 2 bath"
+   */
+  bedBath?: string | null;
+  /**
+   * Tier 3 only. e.g. "Yes · downloadable previews" or "No"
+   */
+  plansPublished?: string | null;
+  /**
+   * Display value, e.g. "$234K" or "$159K to $200K". For Tier 3, the panel system price.
    */
   quote?: string | null;
   /**
    * Numeric value in thousands used for column sorting, e.g. 234.
    */
   quoteSortValue?: number | null;
+  /**
+   * Tier 3 only. Display value, e.g. "$297K to $440K"
+   */
+  estimatedTotal?: string | null;
+  /**
+   * Tier 3 only. Thousands, low end of the range, e.g. 297.
+   */
+  estimatedTotalSortValue?: number | null;
+  /**
+   * Tier 3 only. Where the total comes from, e.g. "Timber Age website estimate"
+   */
+  estimatedTotalSource?: string | null;
+  /**
+   * Tier 3 only. What changes cost and where stock becomes custom, e.g. "20 design hours included, then hourly."
+   */
+  customization?: string | null;
   /**
    * e.g. "supply + install" or "envelope only · full GC bid to drywall: $400K"
    */
@@ -398,8 +422,14 @@ export interface CostMatrixEntriesSelect<T extends boolean = true> {
   wallsR?: T;
   roofR?: T;
   sqft?: T;
+  bedBath?: T;
+  plansPublished?: T;
   quote?: T;
   quoteSortValue?: T;
+  estimatedTotal?: T;
+  estimatedTotalSortValue?: T;
+  estimatedTotalSource?: T;
+  customization?: T;
   quoteNote?: T;
   included?:
     | T

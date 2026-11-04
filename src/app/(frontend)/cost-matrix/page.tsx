@@ -4,15 +4,22 @@ import React from 'react'
 import config from '@/payload.config'
 import { SiteHeader } from '../components/SiteHeader'
 import { SiteFooter } from '../components/SiteFooter'
-import { CostMatrixTable, type MatrixRow } from './CostMatrixTable'
+import { CostMatrixTable, type MatrixRow, type Tier } from './CostMatrixTable'
 
 export const metadata = {
   title: 'The Cost Matrix',
   description:
-    'Eleven manufacturers and builders, eleven different definitions of "what\'s included." Custom envelope quotes and stock kits, itemized, with footnotes.',
+    'Panel manufacturers and builders, each with its own definition of "what\'s included." Custom envelope quotes, stock kits and stock designs, itemized, with footnotes.',
 }
 
 export const dynamic = 'force-dynamic'
+
+const NUMBER_WORDS = [
+  'Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten',
+  'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen',
+  'Nineteen', 'Twenty',
+]
+const numberWord = (n: number) => NUMBER_WORDS[n] ?? String(n)
 
 type Footnote = { id: string | number; number: number; label: string; body: string }
 
@@ -77,7 +84,7 @@ export default async function CostMatrixPage() {
   })
 
   const entries = entriesRes.docs as unknown as (MatrixRow & {
-    tier: 'tier1' | 'tier2'
+    tier: Tier
     analysisHeadline?: string | null
     analysis?: string | null
     footnote?: string | null
@@ -86,6 +93,9 @@ export default async function CostMatrixPage() {
 
   const tier1 = entries.filter((e) => e.tier === 'tier1')
   const tier2 = entries.filter((e) => e.tier === 'tier2')
+  const tier3 = entries.filter((e) => e.tier === 'tier3')
+  const companyCount = new Set(entries.map((e) => e.company.trim().toLowerCase())).size
+  const tierCount = [tier1, tier2, tier3].filter((t) => t.length > 0).length
   // Tier 1 footnotes now live on each manufacturer entry (the `footnote` field).
   const fn1: Footnote[] = tier1
     .filter((e) => e.footnote)
@@ -108,8 +118,7 @@ export default async function CostMatrixPage() {
             Oranges, Itemized.
           </h1>
           <p>
-            Eleven manufacturers and builders, eleven different definitions of &ldquo;what&rsquo;s
-            included,&rdquo; split into two tiers.
+            {`${numberWord(companyCount)} manufacturers and builders, ${numberWord(companyCount).toLowerCase()} different definitions of “what’s included,” split into ${numberWord(tierCount).toLowerCase()} tiers.`}
           </p>
         </div>
       </section>
@@ -156,6 +165,26 @@ export default async function CostMatrixPage() {
               {/* <Footnotes items={fn2} tierLabel="Tier 2" /> */}
               <Analysis rows={tier2} />
             </section>
+
+            {tier3.length > 0 ? (
+              <section className="cm-section">
+                <div className="cm-section__head">
+                  <h2>Tier 3: Stock designs from panel companies</h2>
+                </div>
+                <p className="cm-section__sub">
+                  Pre-designed homes from the panel companies themselves, priced as a panel system
+                  instead of against my design. They sit apart from Tier 2 because a panel shell
+                  isn&rsquo;t a finished kit: foundation, mechanicals and finishes are outside the
+                  panel price, and windows often are too. The estimated total is the
+                  company&rsquo;s own all-in figure where one exists, so check the source under it.
+                  The customization column is what it costs to change a stock plan, and where stock
+                  turns into custom.
+                </p>
+                <p className="cm-hint">↕ Click any column header to sort.</p>
+                <CostMatrixTable rows={tier3} tier="tier3" />
+                <Analysis rows={tier3} />
+              </section>
+            ) : null}
           </>
         )}
       </div>

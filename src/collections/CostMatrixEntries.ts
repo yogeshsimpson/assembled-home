@@ -29,6 +29,7 @@ export const CostMatrixEntries: CollectionConfig = {
       options: [
         { label: 'Tier 1: Envelope quotes (against my design)', value: 'tier1' },
         { label: 'Tier 2: Stock kits / packaged systems', value: 'tier2' },
+        { label: 'Tier 3: Stock designs from panel companies', value: 'tier3' },
       ],
       admin: {
         description: 'Which table this row belongs to.',
@@ -88,9 +89,34 @@ export const CostMatrixEntries: CollectionConfig = {
       type: 'text',
       label: 'Sqft',
       admin: {
-        description: 'Tier 2 only. e.g. "~870-1,000 sqft" or "1,960 sqft"',
-        condition: (data) => data?.tier === 'tier2',
+        description: 'Tiers 2 and 3. e.g. "~870-1,000 sqft" or "1,960 sqft"',
+        condition: (data) => data?.tier === 'tier2' || data?.tier === 'tier3',
       },
+    },
+    {
+      type: 'row',
+      fields: [
+        {
+          name: 'bedBath',
+          type: 'text',
+          label: 'Bed / bath',
+          admin: {
+            width: '50%',
+            description: 'Tier 3 only. e.g. "2 bed / 2 bath"',
+            condition: (data) => data?.tier === 'tier3',
+          },
+        },
+        {
+          name: 'plansPublished',
+          type: 'text',
+          label: 'Plans published?',
+          admin: {
+            width: '50%',
+            description: 'Tier 3 only. e.g. "Yes · downloadable previews" or "No"',
+            condition: (data) => data?.tier === 'tier3',
+          },
+        },
+      ],
     },
     {
       type: 'row',
@@ -98,7 +124,10 @@ export const CostMatrixEntries: CollectionConfig = {
         {
           name: 'quote',
           type: 'text',
-          admin: { width: '50%', description: 'Display value, e.g. "$234K" or "$159K to $200K"' },
+          admin: {
+        width: '50%',
+        description: 'Display value, e.g. "$234K" or "$159K to $200K". For Tier 3, the panel system price.',
+      },
         },
         {
           name: 'quoteSortValue',
@@ -110,6 +139,51 @@ export const CostMatrixEntries: CollectionConfig = {
           },
         },
       ],
+    },
+    {
+      type: 'row',
+      fields: [
+        {
+          name: 'estimatedTotal',
+          type: 'text',
+          label: 'Estimated total',
+          admin: {
+            width: '50%',
+            description: 'Tier 3 only. Display value, e.g. "$297K to $440K"',
+            condition: (data) => data?.tier === 'tier3',
+          },
+        },
+        {
+          name: 'estimatedTotalSortValue',
+          type: 'number',
+          label: 'Estimated total (numeric, for sorting)',
+          admin: {
+            width: '50%',
+            description: 'Tier 3 only. Thousands, low end of the range, e.g. 297.',
+            condition: (data) => data?.tier === 'tier3',
+          },
+        },
+      ],
+    },
+    {
+      name: 'estimatedTotalSource',
+      type: 'text',
+      label: 'Estimated total: source',
+      admin: {
+        description: 'Tier 3 only. Where the total comes from, e.g. "Timber Age website estimate"',
+        condition: (data) => data?.tier === 'tier3',
+      },
+    },
+    {
+      name: 'customization',
+      type: 'textarea',
+      label: 'Customization path',
+      admin: {
+        description:
+          'Tier 3 only. What changes cost and where stock becomes custom, e.g. "20 design hours included, then hourly."',
+        rows: 3,
+        condition: (data) => data?.tier === 'tier3',
+      },
     },
     {
       name: 'quoteNote',

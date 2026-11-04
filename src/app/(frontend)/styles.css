@@ -702,6 +702,42 @@ table.cm-table {
 .cm-table--tier2 .cm-num { white-space: normal; }
 .cm-table--tier2 .cm-r-pair { flex-wrap: wrap; }
 
+table.cm-table--tier3 {
+  table-layout: fixed;
+  min-width: 1180px;
+}
+.cm-table--tier3 thead th { white-space: normal; }
+.cm-table--tier3 thead th:nth-child(1) { width: 13%; }
+.cm-table--tier3 thead th:nth-child(2) { width: 13%; }
+.cm-table--tier3 thead th:nth-child(3) { width: 8%; }
+.cm-table--tier3 thead th:nth-child(4) { width: 11%; }
+.cm-table--tier3 thead th:nth-child(5) { width: 12%; }
+.cm-table--tier3 thead th:nth-child(6) { width: 15%; }
+.cm-table--tier3 thead th:nth-child(7) { width: 14%; }
+.cm-table--tier3 thead th:nth-child(8) { width: 14%; }
+.cm-table--tier3 td { overflow-wrap: break-word; }
+.cm-table--tier3 .cm-num { white-space: normal; }
+.cm-table--tier3 .cm-r-pair { flex-wrap: wrap; }
+.cm-table--tier3 .cm-quote { white-space: normal; }
+
+.cm-plans {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.cm-custom {
+  font-size: 0.86rem;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.cm-quote.cm-quote--total {
+  color: var(--ink);
+}
+
 .cm-quote {
   font-family: var(--font-mono);
   font-size: 1rem;
