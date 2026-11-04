@@ -5,6 +5,7 @@ import config from '@/payload.config'
 import { SiteHeader } from '../components/SiteHeader'
 import { SiteFooter } from '../components/SiteFooter'
 import { CostMatrixTable, type MatrixRow, type Tier } from './CostMatrixTable'
+import { TierControls } from './TierControls'
 
 export const metadata = {
   title: 'The Cost Matrix',
@@ -63,6 +64,55 @@ function Footnotes({ items, tierLabel }: { items: Footnote[]; tierLabel: string 
         ))}
       </ol>
     </div>
+  )
+}
+
+function TierSection({
+  id,
+  number,
+  title,
+  summary,
+  rows,
+  priceLabel,
+  children,
+}: {
+  id: string
+  number: number
+  title: string
+  summary: string
+  rows: MatrixRow[]
+  priceLabel: string
+  children: React.ReactNode
+}) {
+  const companies = new Set(rows.map((r) => r.company.trim().toLowerCase())).size
+  const prices = rows
+    .map((r) => r.quoteSortValue)
+    .filter((v): v is number => typeof v === 'number' && Number.isFinite(v))
+  const fmt = (v: number) => `$${Math.round(v)}K`
+  const lo = prices.length ? Math.min(...prices) : null
+  const hi = prices.length ? Math.max(...prices) : null
+  const range = lo === null || hi === null ? null : lo === hi ? fmt(lo) : `${fmt(lo)} to ${fmt(hi)}`
+  const counts =
+    rows.length === companies
+      ? `${rows.length} ${rows.length === 1 ? 'company' : 'companies'}`
+      : `${rows.length} entries from ${companies} ${companies === 1 ? 'company' : 'companies'}`
+
+  return (
+    <details className="cm-tier" id={id}>
+      <summary className="cm-tier__summary">
+        <span className="cm-tier__num">Tier {number}</span>
+        <span className="cm-tier__text">
+          <h2>{title}</h2>
+          <span className="cm-tier__blurb">{summary}</span>
+          <span className="cm-tier__meta">
+            {counts}
+            {range ? ` · ${priceLabel} ${range}` : null}
+          </span>
+        </span>
+        <span className="cm-tier__icon" aria-hidden="true" />
+      </summary>
+      <div className="cm-tier__body">{children}</div>
+    </details>
   )
 }
 
@@ -132,11 +182,17 @@ export default async function CostMatrixPage() {
             </div>
           </section>
         ) : (
-          <>
-            <section className="cm-section">
-              <div className="cm-section__head">
-                <h2>Tier 1: Customized Panel Systems</h2>
-              </div>
+          <section className="cm-section cm-tiers">
+            <TierControls />
+
+            <TierSection
+              id="tier-1"
+              number={1}
+              title="Customized Panel Systems"
+              summary="What would my own design cost as a panel system?"
+              rows={tier1}
+              priceLabel="quotes"
+            >
               <p className="cm-section__sub">
                 Tier 1 is based on my own design: an 1,850 sqft two-story Scandinavian modern shoe
                 box with a 500 sqft garage. All quotes assume the owner/builder will handle the
@@ -147,12 +203,16 @@ export default async function CostMatrixPage() {
               <CostMatrixTable rows={tier1} tier="tier1" />
               <Footnotes items={fn1} tierLabel="Design & Engineering" />
               <Analysis rows={tier1} />
-            </section>
+            </TierSection>
 
-            <section className="cm-section">
-              <div className="cm-section__head">
-                <h2>Tier 2: Stock kits &amp; packaged systems</h2>
-              </div>
+            <TierSection
+              id="tier-2"
+              number={2}
+              title="Stock kits & packaged systems"
+              summary="What do off-the-shelf kits actually include?"
+              rows={tier2}
+              priceLabel="kits"
+            >
               <p className="cm-section__sub">
                 Different square footages, different programs, different definitions of
                 &ldquo;kit.&rdquo; All quotes assume the owner/builder will handle the site prep
@@ -164,13 +224,17 @@ export default async function CostMatrixPage() {
               {/* Footnotes hidden for now; restore when ready */}
               {/* <Footnotes items={fn2} tierLabel="Tier 2" /> */}
               <Analysis rows={tier2} />
-            </section>
+            </TierSection>
 
             {tier3.length > 0 ? (
-              <section className="cm-section">
-                <div className="cm-section__head">
-                  <h2>Tier 3: Stock designs from panel companies</h2>
-                </div>
+              <TierSection
+                id="tier-3"
+                number={3}
+                title="Stock designs from panel companies"
+                summary="What do the panel companies’ own designs cost, and how far can you change them?"
+                rows={tier3}
+                priceLabel="panel systems"
+              >
                 <p className="cm-section__sub">
                   Pre-designed homes from the panel companies themselves, priced as a panel system
                   instead of against my design. They sit apart from Tier 2 because a panel shell
@@ -183,9 +247,9 @@ export default async function CostMatrixPage() {
                 <p className="cm-hint">↕ Click any column header to sort.</p>
                 <CostMatrixTable rows={tier3} tier="tier3" />
                 <Analysis rows={tier3} />
-              </section>
+              </TierSection>
             ) : null}
-          </>
+          </section>
         )}
       </div>
 
