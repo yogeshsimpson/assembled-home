@@ -697,6 +697,9 @@ h4 {
 }
 
 .cm-table-wrap {
+  /* Break out of the 1080px container to ~90vw, centered on the page. min() keeps it
+     from ever being narrower than the container on small screens. */
+  margin-inline: min(0px, calc(50% - 45vw));
   overflow-x: auto;
   border: 1px solid var(--border);
   border-radius: 14px;

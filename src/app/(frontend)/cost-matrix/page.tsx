@@ -6,6 +6,7 @@ import { SiteHeader } from '../components/SiteHeader'
 import { SiteFooter } from '../components/SiteFooter'
 import { CostMatrixTable, type MatrixRow, type Tier } from './CostMatrixTable'
 import { TierControls } from './TierControls'
+import { countMatrix, numberWord } from '../lib/matrixCounts'
 
 export const metadata = {
   title: 'The Cost Matrix',
@@ -15,12 +16,6 @@ export const metadata = {
 
 export const dynamic = 'force-dynamic'
 
-const NUMBER_WORDS = [
-  'Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten',
-  'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen',
-  'Nineteen', 'Twenty',
-]
-const numberWord = (n: number) => NUMBER_WORDS[n] ?? String(n)
 
 type Footnote = { id: string | number; number: number; label: string; body: string }
 
@@ -144,8 +139,7 @@ export default async function CostMatrixPage() {
   const tier1 = entries.filter((e) => e.tier === 'tier1')
   const tier2 = entries.filter((e) => e.tier === 'tier2')
   const tier3 = entries.filter((e) => e.tier === 'tier3')
-  const companyCount = new Set(entries.map((e) => e.company.trim().toLowerCase())).size
-  const tierCount = [tier1, tier2, tier3].filter((t) => t.length > 0).length
+  const { companyCount, tierCount } = countMatrix(entries)
   // Tier 1 footnotes now live on each manufacturer entry (the `footnote` field).
   const fn1: Footnote[] = tier1
     .filter((e) => e.footnote)

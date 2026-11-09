@@ -3,10 +3,17 @@ import React from 'react'
 
 import { SiteHeader } from './components/SiteHeader'
 import { SiteFooter } from './components/SiteFooter'
+import { getMatrixCounts, numberWord } from './lib/matrixCounts'
 
 const SUBSTACK_URL = 'https://yogeshsimpson.substack.com'
 
-export default function HomePage() {
+// Counts come from the cost matrix data, so the homepage can't drift from the matrix.
+export const dynamic = 'force-dynamic'
+
+export default async function HomePage() {
+  const { companyCount, tierCount } = await getMatrixCounts()
+  const companies = numberWord(companyCount)
+
   return (
     <>
       <SiteHeader />
@@ -35,11 +42,11 @@ export default function HomePage() {
           </div>
           <div className="hero__meta">
             <div>
-              <span className="stat">11</span>
+              <span className="stat">{companyCount}</span>
               <span className="label">Manufacturers compared</span>
             </div>
             <div>
-              <span className="stat">2 tiers</span>
+              <span className="stat">{tierCount} tiers</span>
               <span className="label">Itemized, with footnotes</span>
             </div>
             <div>
@@ -68,12 +75,11 @@ export default function HomePage() {
               <span className="eyebrow">Reference</span>
               <h3>The Cost Matrix</h3>
               <p>
-                Eleven manufacturers and builders, eleven different definitions of
-                &ldquo;what&rsquo;s included,&rdquo; split into two tiers. Tier 1 is based on my
-                design: a 1,850 sqft two-story Scandinavian modern shoe box with a 500 sqft
-                garage. Tier 2 is pre-designed stock kits of comparable size. It&rsquo;s a start.
-                More companies are in the queue, and the custom panel manufacturers have their own
-                pre-designed units that warrant a tier of their own.
+                {`${companies} manufacturers and builders, ${companies.toLowerCase()} different definitions of “what’s included,” split into ${numberWord(tierCount).toLowerCase()} tiers.`}{' '}
+                Tier 1 is based on my design: a 1,850 sqft two-story Scandinavian modern shoe
+                box with a 500 sqft garage. Tier 2 is pre-designed stock kits of comparable size.
+                Tier 3 is the panel companies&rsquo; own stock designs, priced as panel systems, with
+                what it costs to change them. More companies are in the queue.
               </p>
               <p style={{ marginTop: 24 }}>
                 <Link href="/cost-matrix" className="btn">
